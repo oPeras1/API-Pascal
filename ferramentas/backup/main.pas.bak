@@ -1,0 +1,104 @@
+var resposta,ferramentass:string;
+    opcoesferramentas:array[1..4] of string;
+    opcaopescolher:bool;
+
+{$I 'ferramentas/alarme.pas'}
+
+procedure Ferramentas;
+  begin
+       resposta:='s';
+       repeat
+          ferramentass:='/_/    \___/_/  /_/   \__,_/_/ /_/ /_/\___/_/ /_/\__/\__,_/____/';
+          textbackground(lightgray);
+          textcolor(black);
+          clrscr;
+          cursoroff; //desativa o cursor
+          writeln;
+          writeln;
+          GotoXY(((WindMaxX+1 - Length(ferramentass)) div 2),WhereY);
+	  writeln('    ______                                          __            ');
+          GotoXY(((WindMaxX+1 - Length(ferramentass)) div 2),WhereY);
+	  writeln('   / ____/__  ______________ _____ ___  ___  ____  / /_____ ______');
+          GotoXY(((WindMaxX+1 - Length(ferramentass)) div 2),WhereY);
+	  writeln('  / /_  / _ \/ ___/ ___/ __ `/ __ `__ \/ _ \/ __ \/ __/ __ `/ ___/');
+          GotoXY(((WindMaxX+1 - Length(ferramentass)) div 2),WhereY);
+	  writeln(' / __/ /  __/ /  / /  / /_/ / / / / / /  __/ / / / /_/ /_/ (__  ) ');
+          GotoXY(((WindMaxX+1 - Length(ferramentass)) div 2),WhereY);
+          writeln(ferramentass);
+	  Delay(100);
+          writeln;
+          writeln;
+          writeln;
+          im1:=1;
+          opcoesferramentas[1]:='Temporizador';       //Definir todas as opções
+          opcoesferramentas[2]:='Calculadora';
+          opcoesferramentas[3]:='Jogos';
+          opcoesferramentas[4]:=' Voltar';
+          while (im1<=length(opcoesferramentas)) do  //'Animação' das opções disponiveis e o seu centramento
+            begin
+              writeln;
+              GotoXY(((WindMaxX+1 - Length(opcoesferramentas[im1])) div 2),WhereY);
+              writeln(opcoesferramentas[im1]);
+              Delay(100);
+              im1:=im1+1;
+            end;
+          cursorp:=1;
+          GotoXY(((WindMaxX+1 - Length(opcoesferramentas[cursorp])) div 2),cursorp+11);      //Escolher as opções apartir das "arrow keys", definir cor ciano para a opcao pre-selecionada e cor default para a que deixou de ser pre-selecionada
+          TextColor(cyan);
+          writeln(opcoesferramentas[cursorp]);
+          opcaopescolher:=true;
+          while opcaopescolher do
+            begin
+              rk:=readkey;
+              if (rk=#80)then
+                begin
+                  GotoXY(((WindMaxX+1 - Length(opcoesferramentas[cursorp])) div 2),(cursorp)*2+10);
+                  TextColor(black);
+                  writeln(opcoesferramentas[cursorp]);
+                  if (cursorp=Length(opcoesferramentas)) then
+                    cursorp:=0;
+                  cursorp:=cursorp+1;
+                  GotoXY(((WindMaxX+1 - Length(opcoesferramentas[cursorp])) div 2),cursorp*2+10);
+                  TextColor(cyan);
+                  writeln(opcoesferramentas[cursorp]);
+                end
+              else if (rk=#72) then
+                begin
+                  GotoXY(((WindMaxX+1 - Length(opcoesferramentas[cursorp])) div 2),(cursorp)*2+10);
+                  TextColor(black);
+                  writeln(opcoesferramentas[cursorp]);
+                  if (cursorp=1) then
+                    cursorp:=Length(opcoesferramentas)+1;
+                  cursorp:=cursorp-1;
+                  GotoXY(((WindMaxX+1 - Length(opcoesferramentas[cursorp])) div 2),cursorp*2+10);
+                  TextColor(cyan);
+                  writeln(opcoesferramentas[cursorp]);
+                end
+              else if (rk=#13) then
+                begin
+                  writeln(cursorp);
+                  case cursorp of
+                    1:
+                      begin
+                           ProcedureTemporizador();
+                           opcaopescolher:=false;
+                      end;
+                    2:
+                      begin
+                          opcaopescolher:=false;
+                      end;
+                    3:
+                      begin
+                          opcaopescolher:=false;
+                      end;
+                    4:
+                      begin
+                          resposta:='n';
+                          opcaopescolher:=false;
+                      end;
+                  end;
+                end;
+            end;
+       until (lowercase(resposta)<>'s');
+  end;
+
