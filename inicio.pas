@@ -13,6 +13,9 @@ var respostamain:string;
 {$I 'mp3/mainmp3.pas'}
 
 begin
+  ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
+  Delay(1000);
+  WaveOutSetVolume(WAVE_MAPPER, MakeLong(Round(65535), Round(65535))); //https://stackoverflow.com/questions/22785199/change-left-and-right-channels-volume-seperatly-waveoutsetvolume-c
   respostamain:='s';
   volume:=100;
   volumeantigo:=100;
@@ -21,7 +24,6 @@ begin
   repeat
     textbackground(lightgray);
     textcolor(black);
-    clrscr;
     cursoroff; //desativa o cursor
     writeln();
     writeln();

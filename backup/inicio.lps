@@ -8,17 +8,17 @@
       <Unit>
         <Filename Value="inicio.pas"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="110"/>
-        <CursorPos X="49" Y="120"/>
-        <UsageCount Value="168"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="7"/>
+        <CursorPos X="119" Y="18"/>
+        <UsageCount Value="171"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="ferramentas\alarme.pas"/>
-        <EditorIndex Value="7"/>
-        <TopLine Value="34"/>
-        <CursorPos X="24" Y="51"/>
-        <UsageCount Value="84"/>
+        <EditorIndex Value="6"/>
+        <CursorPos X="33" Y="23"/>
+        <UsageCount Value="85"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -26,7 +26,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="72"/>
         <CursorPos X="32" Y="39"/>
-        <UsageCount Value="84"/>
+        <UsageCount Value="85"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -34,38 +34,36 @@
         <EditorIndex Value="2"/>
         <TopLine Value="22"/>
         <CursorPos X="29" Y="28"/>
-        <UsageCount Value="84"/>
+        <UsageCount Value="85"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="mp3\mainmp3.pas"/>
-        <EditorIndex Value="5"/>
-        <TopLine Value="63"/>
-        <CursorPos X="43" Y="87"/>
-        <UsageCount Value="84"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="227"/>
+        <CursorPos X="55" Y="235"/>
+        <UsageCount Value="85"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="H:\Lazarus\fpc\3.2.2\source\packages\rtl-console\src\inc\crth.inc"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="27" Y="84"/>
-        <UsageCount Value="0"/>
+        <UsageCount Value="10"/>
       </Unit>
       <Unit>
         <Filename Value="H:\Lazarus\fpc\3.2.2\source\packages\winunits-base\src\mmsystem.pp"/>
         <UnitName Value="MMSystem"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="20" Y="2625"/>
         <UsageCount Value="41"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="ferramentas\relogio.pas"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <TopLine Value="128"/>
         <CursorPos X="31" Y="156"/>
-        <UsageCount Value="36"/>
+        <UsageCount Value="37"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -76,54 +74,28 @@
       </Unit>
       <Unit>
         <Filename Value="H:\Lazarus\fpc\3.2.2\source\rtl\objpas\sysutils\sysinth.inc"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="92"/>
         <CursorPos X="18" Y="103"/>
         <UsageCount Value="11"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\win\wininc\base.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="453"/>
+        <CursorPos X="48" Y="429"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\inc\systemh.inc"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="426"/>
+        <CursorPos X="8" Y="432"/>
+        <UsageCount Value="10"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="mp3\mainmp3.pas"/>
-        <Caret Line="219" Column="19" TopLine="211"/>
-      </Position>
-      <Position>
-        <Filename Value="inicio.pas"/>
-        <Caret Line="64" Column="58" TopLine="54"/>
-      </Position>
-      <Position>
-        <Filename Value="mp3\mainmp3.pas"/>
-        <Caret Line="8" Column="19"/>
-      </Position>
-      <Position>
-        <Filename Value="mp3\mainmp3.pas"/>
-        <Caret Line="219" Column="43" TopLine="209"/>
-      </Position>
-      <Position>
-        <Filename Value="mp3\mainmp3.pas"/>
-        <Caret Line="225" Column="47" TopLine="211"/>
-      </Position>
-      <Position>
-        <Filename Value="inicio.pas"/>
-        <Caret Line="116" Column="37" TopLine="110"/>
-      </Position>
-      <Position>
-        <Filename Value="ferramentas\relogio.pas"/>
-        <Caret Column="27"/>
-      </Position>
-      <Position>
-        <Filename Value="inicio.pas"/>
-        <Caret Line="8" Column="32"/>
-      </Position>
-      <Position>
-        <Filename Value="inicio.pas"/>
-        <Caret Line="3" Column="47"/>
-      </Position>
-      <Position>
-        <Filename Value="ferramentas\relogio.pas"/>
-        <Caret Line="6" Column="18"/>
-      </Position>
       <Position>
         <Filename Value="ferramentas\relogio.pas"/>
         <Caret Line="23" Column="15"/>
@@ -203,6 +175,46 @@
       <Position>
         <Filename Value="ferramentas\relogio.pas"/>
         <Caret Line="149" Column="23" TopLine="123"/>
+      </Position>
+      <Position>
+        <Filename Value="inicio.pas"/>
+        <Caret Line="16" Column="41" TopLine="7"/>
+      </Position>
+      <Position>
+        <Filename Value="inicio.pas"/>
+        <Caret Line="3" Column="66"/>
+      </Position>
+      <Position>
+        <Filename Value="inicio.pas"/>
+        <Caret Line="16" Column="31" TopLine="7"/>
+      </Position>
+      <Position>
+        <Filename Value="inicio.pas"/>
+        <Caret Line="3" Column="12"/>
+      </Position>
+      <Position>
+        <Filename Value="inicio.pas"/>
+        <Caret Line="16" Column="73" TopLine="4"/>
+      </Position>
+      <Position>
+        <Filename Value="inicio.pas"/>
+        <Caret Line="17" Column="41"/>
+      </Position>
+      <Position>
+        <Filename Value="mp3\mainmp3.pas"/>
+        <Caret Line="235" Column="55" TopLine="227"/>
+      </Position>
+      <Position>
+        <Filename Value="C:\lazarus\fpc\3.2.2\source\rtl\inc\systemh.inc"/>
+        <Caret Line="432" Column="8" TopLine="426"/>
+      </Position>
+      <Position>
+        <Filename Value="inicio.pas"/>
+        <Caret Line="16" Column="19" TopLine="4"/>
+      </Position>
+      <Position>
+        <Filename Value="inicio.pas"/>
+        <Caret Line="3" Column="66"/>
       </Position>
     </JumpHistory>
     <RunParams>
