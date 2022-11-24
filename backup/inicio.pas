@@ -19,6 +19,8 @@ begin
   WindMaxX:=237;
   WindMaxY:=63;
   window(1,1,WindMaxX,WindMaxY);
+  SndPlaySound(PChar('.\mp3\Verão e Amor'),SND_ASYNC + SND_LOOP);
+  SndPlaySound(nil,SND_ASYNC);
   WaveOutSetVolume(WAVE_MAPPER, MakeLong(Round(65535), Round(65535))); //https://stackoverflow.com/questions/22785199/change-left-and-right-channels-volume-seperatly-waveoutsetvolume-c
   respostamain:='s';
   volume:=100;
@@ -125,7 +127,7 @@ begin
                 end;
               2:
                 begin
-                     Calculadora();  a
+                     Calculadora();
                      opcaopescolhermain:=false;
                 end;
               3:

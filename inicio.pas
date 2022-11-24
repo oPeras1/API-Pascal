@@ -19,7 +19,6 @@ begin
   WindMaxX:=237;
   WindMaxY:=63;
   window(1,1,WindMaxX,WindMaxY);
-  WaveOutSetVolume(WAVE_MAPPER, MakeLong(Round(65535), Round(65535))); //https://stackoverflow.com/questions/22785199/change-left-and-right-channels-volume-seperatly-waveoutsetvolume-c
   respostamain:='s';
   volume:=100;
   volumeantigo:=100;

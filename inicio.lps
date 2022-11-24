@@ -9,50 +9,48 @@
         <Filename Value="inicio.pas"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="117"/>
-        <CursorPos X="38" Y="128"/>
-        <UsageCount Value="176"/>
+        <TopLine Value="9"/>
+        <CursorPos X="42" Y="22"/>
+        <UsageCount Value="177"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="ferramentas\alarme.pas"/>
-        <EditorIndex Value="7"/>
-        <TopLine Value="36"/>
-        <CursorPos X="41" Y="55"/>
-        <UsageCount Value="88"/>
+        <EditorIndex Value="5"/>
+        <CursorPos X="11" Y="9"/>
+        <UsageCount Value="89"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="calculadora\maincalculadora.pas"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="37"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="67"/>
         <CursorPos X="32" Y="39"/>
-        <UsageCount Value="88"/>
+        <UsageCount Value="89"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="ferramentas\mainferramentas.pas"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="2"/>
         <TopLine Value="22"/>
         <CursorPos X="29" Y="28"/>
-        <UsageCount Value="88"/>
+        <UsageCount Value="89"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="mp3\mainmp3.pas"/>
-        <EditorIndex Value="6"/>
-        <TopLine Value="145"/>
-        <CursorPos X="53" Y="145"/>
-        <UsageCount Value="88"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="43"/>
+        <CursorPos X="49" Y="53"/>
+        <UsageCount Value="89"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="H:\Lazarus\fpc\3.2.2\source\packages\rtl-console\src\inc\crth.inc"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="69"/>
         <CursorPos X="17" Y="76"/>
         <UsageCount Value="12"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="H:\Lazarus\fpc\3.2.2\source\packages\winunits-base\src\mmsystem.pp"/>
@@ -63,10 +61,9 @@
       </Unit>
       <Unit>
         <Filename Value="ferramentas\relogio.pas"/>
-        <EditorIndex Value="5"/>
-        <TopLine Value="121"/>
+        <EditorIndex Value="3"/>
         <CursorPos X="28" Y="125"/>
-        <UsageCount Value="40"/>
+        <UsageCount Value="41"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -98,11 +95,10 @@
       </Unit>
       <Unit>
         <Filename Value="H:\Lazarus\fpc\3.2.2\source\rtl\win\wininc\func.inc"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="99"/>
         <CursorPos X="34" Y="114"/>
         <UsageCount Value="12"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="fullscreen.pas"/>
@@ -112,7 +108,7 @@
         <UsageCount Value="10"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
+    <JumpHistory HistoryIndex="27">
       <Position>
         <Filename Value="inicio.pas"/>
         <Caret Line="25" Column="26" TopLine="15"/>
@@ -172,14 +168,6 @@
       <Position>
         <Filename Value="inicio.pas"/>
         <Caret Line="33" Column="21" TopLine="21"/>
-      </Position>
-      <Position>
-        <Filename Value="H:\Lazarus\fpc\3.2.2\source\rtl\win\wininc\func.inc"/>
-        <Caret Line="513" Column="26" TopLine="496"/>
-      </Position>
-      <Position>
-        <Filename Value="H:\Lazarus\fpc\3.2.2\source\rtl\win\wininc\func.inc"/>
-        <Caret Line="514" Column="74" TopLine="496"/>
       </Position>
       <Position>
         <Filename Value="inicio.pas"/>
