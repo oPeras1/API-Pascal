@@ -66,11 +66,11 @@ procedure Temporizador;
 
 procedure ProcedureTemporizador;
          begin
+                 cursoron;
 		 repeat
 		   textbackground(lightgray);
                    textcolor(black);
                    clrscr;
-                   cursoroff; //desativa o cursor
 		   writeln('                                                                                   ___________________');
 		   writeln('                                                                                  /                   \');
 		   writeln('                                                                                 /   ______---______   \');
@@ -136,5 +136,6 @@ procedure ProcedureTemporizador;
 		   readln(respostaa);
 		 until (lowercase(respostaa)<>'s');
                  Beep(300,50);
+                 cursoroff;
                  clrscr;
 	end;

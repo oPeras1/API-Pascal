@@ -7,15 +7,18 @@ var respostamain:string;
     im1,cursorp,volume,volumeantigo:integer;
     opcaopescolhermain,musicaloop,musicaambiente:bool;
 
+
+
 //Dependencias - Subprogramas
 {$I 'ferramentas/mainferramentas.pas'}
 {$I 'calculadora/maincalculadora.pas'}
 {$I 'mp3/mainmp3.pas'}
 
 begin
-  ShowWindow(GetConsoleWindow(), SW_MAXIMIZE);
-  Delay(1000);
-  writeln('wfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffwfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff');
+  ShowWindow(GetConsoleWindow(), SW_SHOWMAXIMIZED);
+  WindMaxX:=237;
+  WindMaxY:=63;
+  window(1,1,WindMaxX,WindMaxY);
   WaveOutSetVolume(WAVE_MAPPER, MakeLong(Round(65535), Round(65535))); //https://stackoverflow.com/questions/22785199/change-left-and-right-channels-volume-seperatly-waveoutsetvolume-c
   respostamain:='s';
   volume:=100;
@@ -25,6 +28,7 @@ begin
   repeat
     textbackground(lightgray);
     textcolor(black);
+    clrscr;
     cursoroff; //desativa o cursor
     writeln();
     writeln();
@@ -34,7 +38,7 @@ begin
     writeln('  / // / / / / /__/ / /_/ /');
     writeln('/___/_/ /_/_/\___/_/\____/');
     im1:=1;
-    while (im1<48) do
+    while (im1<((WindMaxX - Length('/___/_/ /_/_/\___/_/\____/')) div 2)) do
         begin
           GotoXY(im1,7);
           DelLine;
@@ -121,7 +125,7 @@ begin
                 end;
               2:
                 begin
-                     Calculadora();
+                     Calculadora();  a
                      opcaopescolhermain:=false;
                 end;
               3:

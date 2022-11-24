@@ -66,6 +66,7 @@ procedure Temporizador;
 
 procedure ProcedureTemporizador;
          begin
+                 cursoron;
 		 repeat
 		   textbackground(lightgray);
                    textcolor(black);
@@ -135,5 +136,7 @@ procedure ProcedureTemporizador;
 		   write('   Pretende repetir? (S/N) ');
 		   readln(respostaa);
 		 until (lowercase(respostaa)<>'s');
+                 Beep(300,50);
+                 cursoroff;
                  clrscr;
 	end;

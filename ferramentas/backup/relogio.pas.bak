@@ -1,9 +1,10 @@
 var respostahoras,stringdia:string;
-    numeros:array[1..9,1..6] of string;
+    numeros:array[1..10,1..6] of string;
     quadrado:array[1..4] of string;
     year, month, day, hr, min, sec, ms: Word;
     ano, mes, dia, hora, minuto, segundo, mssegundo: string;
     num:array[1..4] of integer;
+    loopnum:integer;
     aparecer:bool;
 
 procedure AbrirRelogio;
@@ -96,68 +97,80 @@ procedure AbrirRelogio;
       writeln;
       writeln;
       aparecer:=true;
-      while true do
+      loopnum:=0;
+      while respostahoras='s' do
         begin
           window(((WindMaxX - Length(stringfinal)) div 2),12,WindMaxX, WindMaxY);
-          clrscr;
           DecodeTime(Time,hr, min, sec, ms);
-          hora:=VarToStr(hr);
-          if (Length(hora)=1) then
-            hora:='0'+hora;
-          for im1:=1 to Length(hora) do
+          if (loopnum mod 1000 = 0) then
             begin
-                 num[im1]:=StrToInt(Copy(hora,im1,1));
-            end;
-          minuto:=VarToStr(min);
-          if (Length(minuto)=1) then
-            minuto:='0'+minuto;
-          for im1:=1 to Length(minuto) do
-            begin
-                 num[im1+2]:=StrToInt(Copy(minuto,im1,1));
-            end;
-          for im1:=1 to 6 do
-            begin
-                 write(numeros[num[1]+1][im1]);
-                 write('  ',numeros[num[2]+1][im1]);
-                 if (im1<6) and (im1>1) then
-                   begin
-                     if (aparecer) then
+              clrscr;
+              hora:=VarToStr(hr);
+              if (Length(hora)=1) then
+                hora:='0'+hora;
+              for im1:=1 to Length(hora) do
+                begin
+                     num[im1]:=StrToInt(Copy(hora,im1,1));
+                end;
+              minuto:=VarToStr(min);
+              if (Length(minuto)=1) then
+                minuto:='0'+minuto;
+              for im1:=1 to Length(minuto) do
+                begin
+                     num[im1+2]:=StrToInt(Copy(minuto,im1,1));
+                end;
+              for im1:=1 to 6 do
+                begin
+                     write(numeros[num[1]+1][im1]);
+                     write('',numeros[num[2]+1][im1]);
+                     if (im1<6) and (im1>1) then
                        begin
-                         write('  ',quadrado[im1-1],' ');
-                         write(numeros[num[3]+1][im1]);
-                         writeln(numeros[num[4]+1][im1]);
+                         if (aparecer) then
+                           begin
+                             write('  ',quadrado[im1-1],' ');
+                             write(numeros[num[3]+1][im1]);
+                             writeln(numeros[num[4]+1][im1]);
+                           end
+                         else
+                           begin
+                             write('      ');
+                             write(numeros[num[3]+1][im1]);
+                             writeln(numeros[num[4]+1][im1]);
+                           end;
                        end
                      else
                        begin
-                         write('      ');
-                         write(numeros[num[3]+1][im1]);
+                         write('      ',numeros[num[3]+1][im1]);
                          writeln(numeros[num[4]+1][im1]);
                        end;
-                   end
-                 else
-                   begin
-                     write('      ',numeros[num[3]+1][im1]);
-                     writeln(numeros[num[4]+1][im1]);
-                   end;
+                end;
+              if (aparecer) then
+                aparecer:=false
+              else
+                aparecer:=true;
+              DecodeDate(Date,year,month,day);
+              window(1,22,WindMaxX, WindMaxY);
+              clrscr;
+              stringdia:='Hoje � '+LongDayNames[DayOfWeek(Date)]+', dia '+VarToStr(day)+' de '+LongMonthNames[month]+' do ano de '+VarToStr(year);
+              GotoXY(((WindMaxX - Length(stringdia)) div 2),WhereY);
+              writeln(stringdia);
+              window(((WindMaxX - Length(stringfinal)) div 2),12,WindMaxX, WindMaxY);
             end;
-          if (aparecer) then
-            aparecer:=false
-          else
-            aparecer:=true;
-          DecodeDate(Date,year,month,day);
           window(1,22,WindMaxX, WindMaxY);
-          clrscr;
-          stringdia:='Hoje é '+LongDayNames[DayOfWeek(Date)]+', dia '+VarToStr(day)+' de '+LongMonthNames[month]+' do ano '+VarToStr(year);
-          GotoXY(((WindMaxX - Length(stringdia)) div 2),WhereY);
+          stringdia:='S�o '+VarToStr(hr)+' h, '+VarToStr(min)+' min, '+VarToStr(sec)+' sec e '+VarToStr(ms)+' ms';
+          GotoXY(((WindMaxX - Length(stringdia)) div 2),WhereY+1);
+          DelLine;
           writeln(stringdia);
-          stringdia:='São '+VarToStr(hr)+' h, '+VarToStr(min)+' min, '+VarToStr(sec)+' sec, '+VarToStr(ms)+' ms';
-          GotoXY(((WindMaxX - Length(stringdia)) div 2),WhereY);
-          writeln(stringdia);
-          writeln('daafáááá');
-          Delay(1000);
+          Delay(10);
+          loopnum:=loopnum+20;
+          if (KeyPressed) then
+            begin
+              rk:=readkey;
+              if (rk=#27) then
+                respostahoras:='n';
+            end;
         end;
-      segundo:=VarToStr(sec);
-      mssegundo:=VarToStr(ms);
-      readkey;
     until (lowercase(respostahoras)<>'s');
+    window(1,1,WindMaxX,WindMaxY);
+    clrscr;
   end;
