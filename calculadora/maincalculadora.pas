@@ -2,6 +2,8 @@ var respostac:string;
     opcoesescolhiveisc:array[1..4] of string;
     opcaopescolherc:bool;
 
+{$I 'calculadora/operacoes.pas'}
+
 procedure Calculadora;
   begin
        Beep(700,50);
@@ -77,11 +79,10 @@ procedure Calculadora;
                 end
               else if (rk=#13) then
                 begin
-                  writeln(cursorp);
                   case cursorp of
                     1:
                       begin
-                           ProcedureTemporizador();
+                           Operacoes();
                            opcaopescolherc:=false;
                       end;
                     2:

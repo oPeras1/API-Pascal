@@ -3,6 +3,7 @@ var respostaf,stringfinal:string;
     opcaopescolherf:bool;
 
 {$I 'ferramentas/alarme.pas'}
+{$I 'ferramentas/relogio.pas'}
 
 procedure Ferramentas;
   begin
@@ -12,6 +13,8 @@ procedure Ferramentas;
           stringfinal:='/_/    \___/_/  /_/   \__,_/_/ /_/ /_/\___/_/ /_/\__/\__,_/____/';
           textbackground(lightgray);
           textcolor(black);
+          UpdateCrtDimensions;
+          window(1,1,WindMaxX,WindMaxY);
           clrscr;
           cursoroff; //desativa o cursor
           writeln;
@@ -31,11 +34,11 @@ procedure Ferramentas;
           writeln;
           writeln;
           im1:=1;
-          opcoesescolhiveisf[1]:='Temporizador';       //Definir todas as opÃ§Ãµes
-          opcoesescolhiveisf[2]:='RelÃ³gio';
+          opcoesescolhiveisf[1]:='Temporizador';       //Definir todas as opções
+          opcoesescolhiveisf[2]:='Relógio';
           opcoesescolhiveisf[3]:='Jogos';
           opcoesescolhiveisf[4]:='Voltar';
-          while (im1<=length(opcoesescolhiveisf)) do  //'AnimaÃ§Ã£o' das opÃ§Ãµes disponiveis e o seu centramento
+          while (im1<=length(opcoesescolhiveisf)) do  //'Animação' das opções disponiveis e o seu centramento
             begin
               writeln;
               GotoXY(((WindMaxX+1 - Length(opcoesescolhiveisf[im1])) div 2),WhereY);
@@ -44,7 +47,7 @@ procedure Ferramentas;
               im1:=im1+1;
             end;
           cursorp:=1;
-          GotoXY(((WindMaxX+1 - Length(opcoesescolhiveisf[cursorp])) div 2),cursorp+11);      //Escolher as opÃ§Ãµes apartir das "arrow keys", definir cor ciano para a opcao pre-selecionada e cor default para a que deixou de ser pre-selecionada
+          GotoXY(((WindMaxX+1 - Length(opcoesescolhiveisf[cursorp])) div 2),cursorp+11);      //Escolher as opções apartir das "arrow keys", definir cor ciano para a opcao pre-selecionada e cor default para a que deixou de ser pre-selecionada
           TextColor(cyan);
           writeln(opcoesescolhiveisf[cursorp]);
           opcaopescolherf:=true;
@@ -79,15 +82,16 @@ procedure Ferramentas;
                 end
               else if (rk=#13) then
                 begin
-                  writeln(cursorp);
                   case cursorp of
                     1:
                       begin
+                        Beep(700,50);
                         ProcedureTemporizador();
                         opcaopescolherf:=false;
                       end;
                     2:
                       begin
+                        Beep(700,50);
                         AbrirRelogio();
                         opcaopescolherf:=false;
                       end;
@@ -105,5 +109,6 @@ procedure Ferramentas;
                 end;
             end;
        until (lowercase(respostaf)<>'s');
+       window(1,1,WindMaxX,WindMaxY);
   end;
 

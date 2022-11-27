@@ -9,6 +9,7 @@ var respostahoras,stringdia:string;
 
 procedure AbrirRelogio;
   begin
+    UpdateCrtDimensions;
     numeros[2][1]:='   ___ ';
     numeros[2][2]:='  |_  |';
     numeros[2][3]:='    | |';
@@ -98,9 +99,13 @@ procedure AbrirRelogio;
       writeln;
       aparecer:=true;
       loopnum:=0;
+      GotoXY(((WindMaxX - Length('Esc - Sair')) div 2),25);
+      textcolor(yellow);
+      writeln('Esc - Sair');
+      textcolor(black);
       while respostahoras='s' do
         begin
-          window(((WindMaxX - Length(stringfinal)) div 2),12,WindMaxX, WindMaxY);
+          window(((WindMaxX - Length(stringfinal)) div 2),12,WindMaxX, 24);
           DecodeTime(Time,hr, min, sec, ms);
           if (loopnum mod 1000 = 0) then
             begin
@@ -149,14 +154,15 @@ procedure AbrirRelogio;
               else
                 aparecer:=true;
               DecodeDate(Date,year,month,day);
-              window(1,22,WindMaxX, WindMaxY);
+              window(1,22,WindMaxX, 24);
               clrscr;
               stringdia:='Hoje é '+LongDayNames[DayOfWeek(Date)]+', dia '+VarToStr(day)+' de '+LongMonthNames[month]+' do ano de '+VarToStr(year);
               GotoXY(((WindMaxX - Length(stringdia)) div 2),WhereY);
               writeln(stringdia);
-              window(((WindMaxX - Length(stringfinal)) div 2),12,WindMaxX, WindMaxY);
+              writeln('ESC para sair');
+              window(((WindMaxX - Length(stringfinal)) div 2),12,WindMaxX, 24);
             end;
-          window(1,22,WindMaxX, WindMaxY);
+          window(1,22,WindMaxX, 24);
           stringdia:='São '+VarToStr(hr)+' h, '+VarToStr(min)+' min, '+VarToStr(sec)+' sec e '+VarToStr(ms)+' ms';
           GotoXY(((WindMaxX - Length(stringdia)) div 2),WhereY+1);
           DelLine;

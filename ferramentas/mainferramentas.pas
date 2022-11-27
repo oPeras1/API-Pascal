@@ -13,6 +13,8 @@ procedure Ferramentas;
           stringfinal:='/_/    \___/_/  /_/   \__,_/_/ /_/ /_/\___/_/ /_/\__/\__,_/____/';
           textbackground(lightgray);
           textcolor(black);
+          UpdateCrtDimensions;
+          window(1,1,WindMaxX,WindMaxY);
           clrscr;
           cursoroff; //desativa o cursor
           writeln;
@@ -80,15 +82,16 @@ procedure Ferramentas;
                 end
               else if (rk=#13) then
                 begin
-                  writeln(cursorp);
                   case cursorp of
                     1:
                       begin
+                        Beep(700,50);
                         ProcedureTemporizador();
                         opcaopescolherf:=false;
                       end;
                     2:
                       begin
+                        Beep(700,50);
                         AbrirRelogio();
                         opcaopescolherf:=false;
                       end;

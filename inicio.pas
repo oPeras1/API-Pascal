@@ -1,30 +1,69 @@
 program inicio;
 
-uses sysutils, crt, windows, MMSystem, Classes, variants;
+uses sysutils, windows, MMSystem, Classes, variants, crt, graph, math;
 
-var respostamain:string;
-    textoopcao:array[1..5] of string;   //Opçoes passíveis de serem escolhidas
-    im1,cursorp,volume,volumeantigo:integer;
-    opcaopescolhermain,musicaloop,musicaambiente:bool;
+var respostamain,s:string;
+    textoopcao:array[1..7] of string;   //Opçoes passíveis de serem escolhidas
+    im1,cursorp,volume,volumeantigo,valorcoord:integer;
+    opcaopescolhermain,musicaloop,musicaambiente,primeiravez:bool;
 
-
+procedure UpdateCrtDimensions;
+// secção `initialization` do crt.pp
+var
+  ConsoleInfo: TConsoleScreenBufferinfo;
+begin
+  FillChar(ConsoleInfo, SizeOf(ConsoleInfo), 0);
+  GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), ConsoleInfo);
+  WindMinX := (ConsoleInfo.srWindow.Left) + 1;
+  WindMinY := (ConsoleInfo.srWindow.Top) + 1;
+  WindMaxX := (ConsoleInfo.srWindow.Right) + 1;
+  WindMaxY := (ConsoleInfo.srWindow.Bottom) + 1;
+  WindMax:=((WindMaxY-1) Shl 8)+(WindMaxX-1);
+end;
 
 //Dependencias - Subprogramas
 {$I 'ferramentas/mainferramentas.pas'}
 {$I 'calculadora/maincalculadora.pas'}
 {$I 'mp3/mainmp3.pas'}
 
+procedure CentrarTexto(ipos:integer);
+  begin
+      GotoXY(ipos,7);
+      DelLine;
+      GotoXY(ipos,6);
+      DelLine;
+      GotoXY(ipos,5);
+      DelLine;
+      GotoXY(ipos,4);
+      DelLine;
+      GotoXY(ipos,3);
+      DelLine;
+      GotoXY(ipos,3);
+      writeln('    ____      __     _    ');
+      GotoXY(ipos,4);
+      writeln('   /  _/___  /_/____(_)___');
+      GotoXY(ipos,5);
+      writeln('   / // __ \/ / ___/ / __ \');
+      GotoXY(ipos,6);
+      writeln('  / // / / / / /__/ / /_/ /');
+      GotoXY(ipos,7);
+      writeln('/___/_/ /_/_/\___/_/\____/');
+  end;
+
 begin
   ShowWindow(GetConsoleWindow(), SW_SHOWMAXIMIZED);
-  WindMaxX:=237;
-  WindMaxY:=63;
+  UpdateCrtDimensions;
   window(1,1,WindMaxX,WindMaxY);
   respostamain:='s';
   volume:=100;
   volumeantigo:=100;
   musicaloop:=false;
   musicaambiente:=true;
+  primeiravez:=true;
   repeat
+    ShowWindow(GetConsoleWindow(), SW_SHOWMAXIMIZED);
+    UpdateCrtDimensions;
+    window(1,1,WindMaxX,WindMaxY);
     textbackground(lightgray);
     textcolor(black);
     clrscr;
@@ -39,29 +78,12 @@ begin
     im1:=1;
     while (im1<((WindMaxX - Length('/___/_/ /_/_/\___/_/\____/')) div 2)) do
         begin
-          GotoXY(im1,7);
-          DelLine;
-          GotoXY(im1,6);
-          DelLine;
-          GotoXY(im1,5);
-          DelLine;
-          GotoXY(im1,4);
-          DelLine;
-          GotoXY(im1,3);
-          DelLine;
-          GotoXY(im1,3);
-          writeln('    ____      __     _    ');
-          GotoXY(im1,4);
-          writeln('   /  _/___  /_/____(_)___');
-          GotoXY(im1,5);
-          writeln('   / // __ \/ / ___/ / __ \');
-          GotoXY(im1,6);
-          writeln('  / // / / / / /__/ / /_/ /');
-          GotoXY(im1,7);
-          writeln('/___/_/ /_/_/\___/_/\____/');
-          im1:=im1+2;
-          Delay(10);
+          CentrarTexto(im1);
+          im1:=im1+5;
+          Delay(15);
         end;
+    im1:=((WindMaxX - Length('/___/_/ /_/_/\___/_/\____/')) div 2);
+    CentrarTexto(im1);
     Delay(100);
     writeln;
     writeln;
@@ -69,9 +91,11 @@ begin
     im1:=1;
     textoopcao[1]:='Ferramentas';       //Definir todas as opções
     textoopcao[2]:='Calculadora';
-    textoopcao[3]:='Jogos';
-    textoopcao[4]:='MP3 Player';
-    textoopcao[5]:='Sair';
+    textoopcao[3]:='Desenhos';
+    textoopcao[4]:='Jogos';
+    textoopcao[5]:='MP3 Player';
+    textoopcao[6]:='Sobre e Créditos';
+    textoopcao[7]:='Sair';
     while (im1<=length(textoopcao)) do  //'Animação' das opções disponiveis e o seu centramento
       begin
         writeln;
@@ -85,6 +109,15 @@ begin
     TextColor(cyan);
     writeln(textoopcao[cursorp]);
     opcaopescolhermain:=true;
+    if (primeiravez) then
+      begin
+        primeiravez:=false;
+        GotoXY(1,1);
+        TextColor(red);
+        write('AVISO:');
+        TextColor(yellow);
+        writeln(' Este programa faz uso das setas do teclado e do ENTER para navegar entre menus.');
+      end;
     while opcaopescolhermain do
       begin
         rk:=readkey;
@@ -129,14 +162,23 @@ begin
                 end;
               3:
                 begin
+                     //Desenhos();
                      opcaopescolhermain:=false;
                 end;
               4:
                 begin
-                     MP3Player;
                      opcaopescolhermain:=false;
                 end;
               5:
+                begin
+                     MP3Player;
+                     opcaopescolhermain:=false;
+                end;
+              6:
+                begin
+                     opcaopescolhermain:=false;
+                end;
+              7:
                 begin
                      respostamain:='n';
                      opcaopescolhermain:=false;

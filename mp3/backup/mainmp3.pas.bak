@@ -2,6 +2,7 @@ var respostamp3,musicaescolhida:string;
     opcoesescolhiveismp3:array[1..6] of string;
     opcoesdasopcoes:array[1..4] of string;
     opcaopescolhermp3,esquerda,pode:bool;
+    tamanhoxwind:integer;
 
 procedure MP3Player;
   begin
@@ -55,17 +56,16 @@ procedure MP3Player;
           while (im1<=length(opcoesescolhiveismp3)) do  //'Animações das opções disponiveis e o seu centramento
             begin
               writeln;
-              GotoXY(10,WhereY);
+              GotoXY(WindMaxX div 4,WhereY);
               writeln(opcoesescolhiveismp3[im1]);
               Delay(100);
               im1:=im1+1;
             end;
           cursorp:=1;
-          GotoXY(10,cursorp+18);      //Escolher as opções apartir das "arrow keys", definir cor ciano para a opcao pre-selecionada e cor default para a que deixou de ser pre-selecionada
+          GotoXY(WindMaxX div 4,cursorp+18);      //Escolher as opções apartir das "arrow keys", definir cor ciano para a opcao pre-selecionada e cor default para a que deixou de ser pre-selecionada
           TextColor(cyan);
           writeln(opcoesescolhiveismp3[cursorp]);
           opcaopescolhermp3:=true;
-          window(90,19, WindMaxX, WindMaxY);
           TextColor(black);
           im1:=1;
           opcoesdasopcoes[1]:='Volume da Música: '+VarToStr(volume)+'%';       //Definir todas as opções
@@ -76,6 +76,8 @@ procedure MP3Player;
           if (not musicaambiente) then
             opcoesdasopcoes[3]:=' Música Ambiente: [ ]';
           opcoesdasopcoes[4]:='               Voltar';
+          tamanhoxwind:=(3*WindMaxX div 4)-Length(opcoesdasopcoes[1]+5);
+          window(tamanhoxwind,19, WindMaxX, WindMaxY);
           GotoXY(1,1);
           while (im1<=length(opcoesdasopcoes)) do  //'Animações das opções disponiveis e o seu centramento
             begin
@@ -92,19 +94,19 @@ procedure MP3Player;
                 begin
                   if (esquerda) then
                     begin
-                      GotoXY(10,(cursorp)*2+17);
+                      GotoXY(WindMaxX div 4,(cursorp)*2+17);
                       TextColor(black);
                       writeln(opcoesescolhiveismp3[cursorp]);
                       if (cursorp=Length(opcoesescolhiveismp3)) then
                         cursorp:=0;
                       cursorp:=cursorp+1;
-                      GotoXY(10,cursorp*2+17);
+                      GotoXY(WindMaxX div 4,cursorp*2+17);
                       TextColor(cyan);
                       writeln(opcoesescolhiveismp3[cursorp]);
                     end
                   else
                     begin
-                      window(90,19, WindMaxX, WindMaxY);
+                      window(tamanhoxwind,19, WindMaxX, WindMaxY);
                       GotoXY(1,cursorp*2-1);
                       TextColor(black);
                       writeln(opcoesdasopcoes[cursorp]);
@@ -122,19 +124,19 @@ procedure MP3Player;
                 begin
                   if (esquerda) then
                     begin
-                      GotoXY(10,(cursorp)*2+17);
+                      GotoXY(WindMaxX div 4,(cursorp)*2+17);
                       TextColor(black);
                       writeln(opcoesescolhiveismp3[cursorp]);
                       if (cursorp=1) then
                         cursorp:=Length(opcoesescolhiveismp3)+1;
                       cursorp:=cursorp-1;
-                      GotoXY(10,cursorp*2+17);
+                      GotoXY(WindMaxX div 4,cursorp*2+17);
                       TextColor(cyan);
                       writeln(opcoesescolhiveismp3[cursorp]);
                     end
                   else
                     begin
-                      window(90,19, WindMaxX, WindMaxY);
+                      window(tamanhoxwind,19, WindMaxX, WindMaxY);
                       GotoXY(1,cursorp*2-1);
                       TextColor(black);
                       writeln(opcoesdasopcoes[cursorp]);
@@ -161,13 +163,13 @@ procedure MP3Player;
                       case cursorp of
                         1:
                          begin
-                           window(90,19, WindMaxX, WindMaxY);
+                           window(tamanhoxwind,19, WindMaxX, WindMaxY);
                            GotoXY(1,cursorp*2-1);
                            InsLine;
                            writeln('Volume da Música: ');
                            DelLine;
                            cursoron;
-                           GotoXY(19,cursorp*2-1);
+                           GotoXY(1+18,cursorp*2-1);
                            volumeantigo:=volume;
                            readln(volume);
                            cursoroff;
@@ -182,7 +184,7 @@ procedure MP3Player;
                          end;
                         2:
                          begin
-                           window(90,19, WindMaxX, WindMaxY);
+                           window(tamanhoxwind,19, WindMaxX, WindMaxY);
                            GotoXY(1,cursorp*2-1);
                            if (musicaloop) then
                              begin
@@ -199,7 +201,7 @@ procedure MP3Player;
                         3:
                          begin
                            pode:=false;
-                           window(90,19, WindMaxX, WindMaxY);
+                           window(tamanhoxwind,19, WindMaxX, WindMaxY);
                            GotoXY(1,cursorp*2-1);
                            if (musicaambiente) then
                              begin
@@ -225,7 +227,6 @@ procedure MP3Player;
                       musicaescolhida:='.\mp3\Nenhuma';
                     if ((respostamp3='s') and (pode)) or ((respostamp3='n') and (not musicaambiente) and (pode)) then
                       begin
-                        writeln((volumeantigo=volume));
                         if (volumeantigo=volume) then
                           begin
                             SndPlaySound(nil,SND_ASYNC);
@@ -248,11 +249,11 @@ procedure MP3Player;
               else if (rk=#77) and (esquerda) then
                 begin
                   esquerda:=false;
-                  GotoXY(10,(cursorp)*2+17);
+                  GotoXY(WindMaxX div 4,(cursorp)*2+17);
                   TextColor(black);
                   writeln(opcoesescolhiveismp3[cursorp]);
                   cursorp:=1;
-                  window(90,19, WindMaxX, WindMaxY);
+                  window(tamanhoxwind,19, WindMaxX, WindMaxY);
                   GotoXY(1,(cursorp)*2-1);
                   TextColor(cyan);
                   writeln(opcoesdasopcoes[cursorp]);
@@ -262,13 +263,13 @@ procedure MP3Player;
               else if (rk=#75) and (not esquerda) then
                 begin
                   esquerda:=true;
-                  window(90,19, WindMaxX, WindMaxY);
+                  window(tamanhoxwind,19, WindMaxX, WindMaxY);
                   GotoXY(1,(cursorp)*2-1);
                   TextColor(black);
                   writeln(opcoesdasopcoes[cursorp]);
                   cursorp:=1;
                   window(1,1, WindMaxX, WindMaxY);
-                  GotoXY(10,(cursorp)*2+17);
+                  GotoXY(WindMaxX div 4,(cursorp)*2+17);
                   TextColor(cyan);
                   writeln(opcoesescolhiveismp3[cursorp]);
                   Beep(450,50);
