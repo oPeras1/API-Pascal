@@ -1,11 +1,12 @@
 program inicio;
 
-uses sysutils, windows, MMSystem, Classes, variants, crt, graph, math;
+uses sysutils, windows, MMSystem, Classes, variants, crt, graph, math, fphttpclient, openssl, opensslsockets, fpjson, jsonparser;
 
 var respostamain,s:string;
     textoopcao:array[1..7] of string;   //Opçoes passíveis de serem escolhidas
     im1,cursorp,volume,volumeantigo,valorcoord:integer;
-    opcaopescolhermain,musicaloop,musicaambiente,primeiravez:bool;
+    opcaopescolhermain,musicaloop,musicaambiente,primeiravez,cancelarmenu:bool;
+    rk:char;
 
 procedure UpdateCrtDimensions;
 // secção `initialization` do crt.pp
@@ -21,9 +22,58 @@ begin
   WindMax:=((WindMaxY-1) Shl 8)+(WindMaxX-1);
 end;
 
+procedure writelnxy(frase:string;xadicional:integer;y:integer);
+  begin
+    UpdateCrtDimensions;
+    GotoXY((WindMaxX - Length(frase)) div 2+xadicional,y);
+    writeln(frase);
+  end;
+
+function MenuCimaBaixo(arrarmenu:array of string;somay:integer): integer; //MENU PARA SUBIR,DESCER, TROCAR DE MENUS...
+  var imenu:integer;
+  begin
+    cancelarmenu:=true;
+    imenu:=1;
+    while cancelarmenu do
+        begin
+          rk:=readkey;
+          if (rk=#80)then
+            begin
+              TextColor(black);
+              writelnxy(arrarmenu[imenu-1],0,(imenu)*2+somay);
+              if (imenu=Length(arrarmenu)) then
+                imenu:=0;
+              imenu:=imenu+1;
+              TextColor(cyan);
+              writelnxy(arrarmenu[imenu-1],0,imenu*2+somay);
+              Beep(400,50);
+            end
+          else if (rk=#72) then
+            begin
+              TextColor(black);
+              writelnxy(arrarmenu[imenu-1],0,(imenu)*2+somay);
+              if (imenu=1) then
+                imenu:=Length(arrarmenu)+1;
+              imenu:=imenu-1;
+              TextColor(cyan);
+              writelnxy(arrarmenu[imenu-1],0,(imenu)*2+somay);
+              Beep(400,50);
+            end
+          else if (rk=#13) then
+            begin
+              if (imenu<=Length(arrarmenu)) then
+                begin
+                 cancelarmenu:=false;
+                 MenuCimaBaixo:=imenu;
+                end;
+            end;
+        end;
+    end;
+
 //Dependencias - Subprogramas
 {$I 'ferramentas/mainferramentas.pas'}
 {$I 'calculadora/maincalculadora.pas'}
+{$I 'jogos/mainjogos.pas'}
 {$I 'mp3/mainmp3.pas'}
 
 procedure CentrarTexto(ipos:integer);
@@ -51,6 +101,7 @@ procedure CentrarTexto(ipos:integer);
   end;
 
 begin
+  TempoCidade;
   ShowWindow(GetConsoleWindow(), SW_SHOWMAXIMIZED);
   UpdateCrtDimensions;
   window(1,1,WindMaxX,WindMaxY);
@@ -99,15 +150,13 @@ begin
     while (im1<=length(textoopcao)) do  //'Animação' das opções disponiveis e o seu centramento
       begin
         writeln;
-        GotoXY(((WindMaxX+1 - Length(textoopcao[im1])) div 2),WhereY);
-        writeln(textoopcao[im1]);
+        writelnxy(textoopcao[im1],0,WhereY);
         Delay(100);
         im1:=im1+1;
       end;
     cursorp:=1;
-    GotoXY(((WindMaxX+1 - Length(textoopcao[cursorp])) div 2),cursorp+11);      //Escolher as opções apartir das "arrow keys", definir cor ciano para a opcao pre-selecionada e cor default para a que deixou de ser pre-selecionada
     TextColor(cyan);
-    writeln(textoopcao[cursorp]);
+    writelnxy(textoopcao[cursorp],0,cursorp+11);       //Escolher as opções apartir das "arrow keys", definir cor ciano para a opcao pre-selecionada e cor default para a que deixou de ser pre-selecionada
     opcaopescolhermain:=true;
     if (primeiravez) then
       begin
@@ -118,74 +167,42 @@ begin
         TextColor(yellow);
         writeln(' Este programa faz uso das setas do teclado e do ENTER para navegar entre menus.');
       end;
-    while opcaopescolhermain do
-      begin
-        rk:=readkey;
-        if (rk=#80)then
-          begin
-            GotoXY(((WindMaxX+1 - Length(textoopcao[cursorp])) div 2),(cursorp)*2+10);
-            TextColor(black);
-            writeln(textoopcao[cursorp]);
-            if (cursorp=Length(textoopcao)) then
-              cursorp:=0;
-            cursorp:=cursorp+1;
-            GotoXY(((WindMaxX+1 - Length(textoopcao[cursorp])) div 2),cursorp*2+10);
-            TextColor(cyan);
-            writeln(textoopcao[cursorp]);
-            Beep(400,50);
-          end
-        else if (rk=#72) then
-          begin
-            GotoXY(((WindMaxX+1 - Length(textoopcao[cursorp])) div 2),(cursorp)*2+10);
-            TextColor(black);
-            writeln(textoopcao[cursorp]);
-            if (cursorp=1) then
-              cursorp:=Length(textoopcao)+1;
-            cursorp:=cursorp-1;
-            GotoXY(((WindMaxX+1 - Length(textoopcao[cursorp])) div 2),cursorp*2+10);
-            TextColor(cyan);
-            writeln(textoopcao[cursorp]);
-            Beep(400,50);
-          end
-        else if (rk=#13) then
-          begin
-            case cursorp of
-              1:
-                begin
-                     Ferramentas();
-                     opcaopescolhermain:=false;
-                end;
-              2:
-                begin
-                     Calculadora();
-                     opcaopescolhermain:=false;
-                end;
-              3:
-                begin
-                     //Desenhos();
-                     opcaopescolhermain:=false;
-                end;
-              4:
-                begin
-                     opcaopescolhermain:=false;                      a
-                end;
-              5:
-                begin
-                     MP3Player;
-                     opcaopescolhermain:=false;
-                end;
-              6:
-                begin
-                     opcaopescolhermain:=false;
-                end;
-              7:
-                begin
-                     respostamain:='n';
-                     opcaopescolhermain:=false;
-                end;
-            end;
-          end;
-      end;
+    case MenuCimaBaixo(textoopcao,10) of
+      1:
+        begin
+             Ferramentas();
+             opcaopescolhermain:=false;
+        end;
+      2:
+        begin
+             Calculadora();
+             opcaopescolhermain:=false;
+        end;
+      3:
+        begin
+             //Desenhos();
+             opcaopescolhermain:=false;
+        end;
+      4:
+        begin
+             Jogos();
+             opcaopescolhermain:=false;
+        end;
+      5:
+        begin
+             MP3Player;
+             opcaopescolhermain:=false;
+        end;
+      6:
+        begin
+             opcaopescolhermain:=false;
+        end;
+      7:
+        begin
+             respostamain:='n';
+             opcaopescolhermain:=false;
+        end;
+    end;
   until (lowercase(respostamain)<>'s');
 end.
 

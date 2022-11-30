@@ -1,6 +1,5 @@
 var tempo,opcao,mult,i,tempowait,tempoloop:integer;
     opcaos,respostaa:string;
-    rk:char;
 
 
 procedure Temporizador;

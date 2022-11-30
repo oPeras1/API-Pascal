@@ -1,9 +1,9 @@
 var respostaf,stringfinal:string;
     opcoesescolhiveisf:array[1..4] of string;
-    opcaopescolherf:bool;
 
 {$I 'ferramentas/alarme.pas'}
 {$I 'ferramentas/relogio.pas'}
+{$I 'ferramentas/tempo.pas'}
 
 procedure Ferramentas;
   begin
@@ -41,73 +41,33 @@ procedure Ferramentas;
           while (im1<=length(opcoesescolhiveisf)) do  //'Animação' das opções disponiveis e o seu centramento
             begin
               writeln;
-              GotoXY(((WindMaxX+1 - Length(opcoesescolhiveisf[im1])) div 2),WhereY);
-              writeln(opcoesescolhiveisf[im1]);
+              writelnxy(opcoesescolhiveisf[im1],0,WhereY);
               Delay(100);
               im1:=im1+1;
             end;
-          cursorp:=1;
-          GotoXY(((WindMaxX+1 - Length(opcoesescolhiveisf[cursorp])) div 2),cursorp+11);      //Escolher as opções apartir das "arrow keys", definir cor ciano para a opcao pre-selecionada e cor default para a que deixou de ser pre-selecionada
           TextColor(cyan);
-          writeln(opcoesescolhiveisf[cursorp]);
-          opcaopescolherf:=true;
-          while opcaopescolherf do
-            begin
-              rk:=readkey;
-              if (rk=#80)then
-                begin
-                  GotoXY(((WindMaxX+1 - Length(opcoesescolhiveisf[cursorp])) div 2),(cursorp)*2+10);
-                  TextColor(black);
-                  writeln(opcoesescolhiveisf[cursorp]);
-                  if (cursorp=Length(opcoesescolhiveisf)) then
-                    cursorp:=0;
-                  cursorp:=cursorp+1;
-                  GotoXY(((WindMaxX+1 - Length(opcoesescolhiveisf[cursorp])) div 2),cursorp*2+10);
-                  TextColor(cyan);
-                  writeln(opcoesescolhiveisf[cursorp]);
-                  Beep(400,50);
-                end
-              else if (rk=#72) then
-                begin
-                  GotoXY(((WindMaxX+1 - Length(opcoesescolhiveisf[cursorp])) div 2),(cursorp)*2+10);
-                  TextColor(black);
-                  writeln(opcoesescolhiveisf[cursorp]);
-                  if (cursorp=1) then
-                    cursorp:=Length(opcoesescolhiveisf)+1;
-                  cursorp:=cursorp-1;
-                  GotoXY(((WindMaxX+1 - Length(opcoesescolhiveisf[cursorp])) div 2),cursorp*2+10);
-                  TextColor(cyan);
-                  writeln(opcoesescolhiveisf[cursorp]);
-                  Beep(400,50);
-                end
-              else if (rk=#13) then
-                begin
-                  case cursorp of
-                    1:
-                      begin
-                        Beep(700,50);
-                        ProcedureTemporizador();
-                        opcaopescolherf:=false;
-                      end;
-                    2:
-                      begin
-                        Beep(700,50);
-                        AbrirRelogio();
-                        opcaopescolherf:=false;
-                      end;
-                    3:
-                      begin
-                        opcaopescolherf:=false;
-                      end;
-                    4:
-                      begin
-                        respostaf:='n';
-                        opcaopescolherf:=false;
-                        Beep(300,50);
-                      end;
-                  end;
-                end;
-            end;
+          writelnxy(opcoesescolhiveisf[1],0,12);
+          case MenuCimaBaixo(opcoesescolhiveisf,10) of
+            1:
+              begin
+                Beep(700,50);
+                ProcedureTemporizador();
+              end;
+            2:
+              begin
+                Beep(700,50);
+                AbrirRelogio();
+              end;
+            3:
+              begin
+
+              end;
+            4:
+              begin
+                respostaf:='n';
+                Beep(300,50);
+              end;
+          end;
        until (lowercase(respostaf)<>'s');
   end;
 
