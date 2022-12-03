@@ -46,13 +46,12 @@ procedure Jogos;
               Delay(100);
               im1:=im1+1;
             end;
-          cursorp:=1;
           TextColor(cyan);
           writelnxy(opcoesescolhiveisj[1],0,13);
           case MenuCimaBaixo(opcoesescolhiveisj,11) of
             1:
               begin
-                ProcedureTemporizador();
+                JogoGalo();
 
               end;
             2:

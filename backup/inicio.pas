@@ -1,8 +1,8 @@
 program inicio;
 
-uses sysutils, windows, MMSystem, Classes, variants, crt, graph, math, fphttpclient, openssl, opensslsockets, fpjson, jsonparser;
+uses sysutils, windows, MMSystem, Classes, variants, crt, graph, math, fphttpclient, openssl, opensslsockets, fpjson, jsonparser, dateutils;
 
-var respostamain,s:string;
+var respostamain,s,nomemaquina:string;
     textoopcao:array[1..7] of string;   //Opçoes passíveis de serem escolhidas
     im1,cursorp,volume,volumeantigo,valorcoord:integer;
     opcaopescolhermain,musicaloop,musicaambiente,primeiravez,cancelarmenu:bool;
@@ -101,7 +101,7 @@ procedure CentrarTexto(ipos:integer);
   end;
 
 begin
-  TempoCidade;
+  //TempoCidade;
   ShowWindow(GetConsoleWindow(), SW_SHOWMAXIMIZED);
   UpdateCrtDimensions;
   window(1,1,WindMaxX,WindMaxY);
@@ -154,7 +154,7 @@ begin
         Delay(100);
         im1:=im1+1;
       end;
-    cursorp:=1;
+    cursorp:=1;                                   a
     TextColor(cyan);
     writelnxy(textoopcao[cursorp],0,cursorp+11);       //Escolher as opções apartir das "arrow keys", definir cor ciano para a opcao pre-selecionada e cor default para a que deixou de ser pre-selecionada
     opcaopescolhermain:=true;
@@ -201,6 +201,10 @@ begin
         begin
              respostamain:='n';
              opcaopescolhermain:=false;
+             Beep(300,200);
+             Beep(200,200);
+             Beep(100,200);
+             Beep(400,50);
         end;
     end;
   until (lowercase(respostamain)<>'s');

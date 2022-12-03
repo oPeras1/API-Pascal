@@ -1,6 +1,5 @@
 var tempo,opcao,mult,i,tempowait,tempoloop:integer;
     opcaos,respostaa:string;
-    rk:char;
 
 
 procedure Temporizador;
@@ -66,35 +65,36 @@ procedure Temporizador;
 
 procedure ProcedureTemporizador;
          begin
+                 clrscr;
                  cursoron;
 		 repeat
 		   textbackground(lightgray);
                    textcolor(black);
-                   clrscr;
                    cursoron; //desativa o cursor
-		   writeln('                                                                                   ___________________');
-		   writeln('                                                                                  /                   \');
-		   writeln('                                                                                 /   ______---______   \');
-		   writeln('     ______                                _                 __                 /   /               \   \');
-		   writeln('    /_  __/__  ____ ___  ____  ____  _____(_)___  ____ _____/ /___  _____      {   /    _     _   _  \   }');
-		   writeln('     / / / _ \/ __ `__ \/ __ \/ __ \/ ___/ /_  / / __ `/ __  / __ \/ ___/      |  {    | | . | | | |  }  |-`');
-		   writeln('    / / /  __/ / / / / / /_/ / /_/ / /  / / / /_/ /_/ / /_/ / /_/ / /          |  |    |_| . |_| |_|  |  | |');
-		   writeln('   /_/  \___/_/ /_/ /_/ .___/\____/_/  /_/ /___/\__,_/\__,_/\____/_/           |  {                   }  |-´');
-		   writeln('                     /_/                                                       {   \                 /   }');
-		   writeln('                                                                                \   `------___------´   /');
-		   writeln('                                                                                 \                     /');
-		   writeln('                                                                                  \                   /');
-		   writeln('                                                                                    -----------------');
+                   window((WindMaxX-Length('/_/  \___/_/ /_/ /_/ .___/\____/_/  /_/ /___/\__,_/\__,_/\____/_/           |  {                   }  |-´')) div 2,3,WindMaxX,WindMaxY);
+		   writeln('                                                                                ___________________');
+		   writeln('                                                                               /                   \');
+		   writeln('                                                                              /   ______---______   \');
+		   writeln('  ______                                _                 __                 /   /               \   \');
+		   writeln(' /_  __/__  ____ ___  ____  ____  _____(_)___  ____ _____/ /___  _____      {   /    _     _   _  \   }');
+		   writeln('  / / / _ \/ __ `__ \/ __ \/ __ \/ ___/ /_  / / __ `/ __  / __ \/ ___/      |  {    | | . | | | |  }  |-`');
+		   writeln(' / / /  __/ / / / / / /_/ / /_/ / /  / / / /_/ /_/ / /_/ / /_/ / /          |  |    |_| . |_| |_|  |  | |');
+		   writeln('/_/  \___/_/ /_/ /_/ .___/\____/_/  /_/ /___/\__,_/\__,_/\____/_/           |  {                   }  |-´');
+		   writeln('                  /_/                                                       {   \                 /   }');
+		   writeln('                                                                             \   `------___------´   /');
+		   writeln('                                                                              \                     /');
+		   writeln('                                                                               \                   /');
+		   writeln('                                                                                 -----------------');
 		   writeln;
 		   writeln;
 		   writeln;
-		   writeln('   Escolha a unidade de tempo pretendida (1, 2, 3): ');
+		   writeln('Escolha a unidade de tempo pretendida (1, 2, 3): ');
 		   writeln;
-		   writeln('      o Segundos');
-		   writeln('      o Minutos');
-		   writeln('      o Horas');
+		   writeln('    o Segundos');
+		   writeln('    o Minutos');
+		   writeln('    o Horas');
 		   repeat
-			 GotoXY(53,17);
+			 GotoXY(53,14);
 			 readln(opcao);
 			 GotoXY(1,23);
 			 case opcao of
@@ -122,12 +122,12 @@ procedure ProcedureTemporizador;
 					   GotoXY(1,17);
 					   DelLine;
 					   InsLine;
-					   writeln('   Escolha a unidade de tempo pretendida (1, 2, 3): ');
+					   writeln('Escolha a unidade de tempo pretendida (1, 2, 3): ');
 					 end;
 			 end;
 		   until (opcaos<>'null');
 		   GotoXY(1,23);
-		   write('   Digite o tempo em ', lowercase(opcaos),'s pretendido: ');
+		   write('Digite o tempo em ', lowercase(opcaos),'s pretendido: ');
 		   readln(tempo);
 		   writeln();
 		   tempo:=tempo*mult;
@@ -135,8 +135,10 @@ procedure ProcedureTemporizador;
 		   Temporizador();
                    cursoron;
 		   writeln();
-		   write('   Pretende repetir? (S/N) ');
+		   write('Pretende repetir? (S/N) ');
 		   readln(respostaa);
+                   window(1,1,WindMaxX,WindMaxY);
+                   clrscr;
 		 until (lowercase(respostaa)<>'s');
                  Beep(300,50);
                  clrscr;

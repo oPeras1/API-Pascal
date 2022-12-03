@@ -42,7 +42,7 @@ procedure AbrirRelogio;
     numeros[6][6]:='|_____|';
     numeros[7][1]:=' _____ ';
     numeros[7][2]:='|  ___|';
-    numeros[7][3]:='| |___';
+    numeros[7][3]:='| |___ ';
     numeros[7][4]:='|  _  |';
     numeros[7][5]:='| |_| |';
     numeros[7][6]:='|_____|';
@@ -100,7 +100,9 @@ procedure AbrirRelogio;
       aparecer:=true;
       loopnum:=0;
       GotoXY(((WindMaxX - Length('Esc - Sair')) div 2),25);
+      textcolor(yellow);
       writeln('Esc - Sair');
+      textcolor(black);
       while respostahoras='s' do
         begin
           window(((WindMaxX - Length(stringfinal)) div 2),12,WindMaxX, 24);
@@ -176,5 +178,6 @@ procedure AbrirRelogio;
         end;
     until (lowercase(respostahoras)<>'s');
     window(1,1,WindMaxX,WindMaxY);
+    Beep(300,50);
     clrscr;
   end;

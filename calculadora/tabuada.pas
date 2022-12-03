@@ -9,7 +9,6 @@ procedure Tabuada;
     textbackground(lightgray);
     textcolor(black);
     clrscr;
-    cursoroff; //desativa o cursor
     writeln;
     writeln;
     lenghtescolha:=(WindMaxX+1 - Length(stringfinal)+3) div 2+10;
@@ -30,6 +29,7 @@ procedure Tabuada;
       clrscr;
       somamedia:=0;
       GotoXY(lenghtescolha-10,WhereY);
+      cursoron;
       write('Pretende fazer a tabuada de que número? ');
       readln(numtabuada);
       repeat
@@ -61,5 +61,7 @@ procedure Tabuada;
       write('Pretende repetir? (S/N) ');
       readln(respostatab);
     until (lowercase(respostatab)<>'s');
+    cursoroff;
+    Beep(300,50);
     window(1,1,WindMaxX,WindMaxY);
   end;

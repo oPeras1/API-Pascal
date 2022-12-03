@@ -36,7 +36,7 @@ procedure Ferramentas;
           im1:=1;
           opcoesescolhiveisf[1]:='Temporizador';       //Definir todas as opções
           opcoesescolhiveisf[2]:='Relógio';
-          opcoesescolhiveisf[3]:='Jogos';
+          opcoesescolhiveisf[3]:='Meteorologia';
           opcoesescolhiveisf[4]:='Voltar';
           while (im1<=length(opcoesescolhiveisf)) do  //'Animação' das opções disponiveis e o seu centramento
             begin
@@ -60,7 +60,8 @@ procedure Ferramentas;
               end;
             3:
               begin
-
+                Beep(700,50);
+                TempoCidade;
               end;
             4:
               begin

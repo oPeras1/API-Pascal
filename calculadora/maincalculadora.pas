@@ -1,9 +1,11 @@
 var respostac:string;
-    opcoesescolhiveisc:array[1..4] of string;
+    opcoesescolhiveisc:array[1..6] of string;
 
 {$I 'calculadora/operacoes.pas'}
 {$I 'calculadora/media.pas'}
 {$I 'calculadora/tabuada.pas'}
+{$I 'calculadora/somanumeros.pas'}
+{$I 'calculadora/equacaoincognita.pas'}
 
 procedure Calculadora;
   begin
@@ -35,7 +37,9 @@ procedure Calculadora;
           opcoesescolhiveisc[1]:='Operações';       //Definir todas as opções
           opcoesescolhiveisc[2]:='Média';
           opcoesescolhiveisc[3]:='Tabuada';
-          opcoesescolhiveisc[4]:='Voltar';
+          opcoesescolhiveisc[4]:='Soma de Números';
+          opcoesescolhiveisc[5]:='Descobrir Incógnita (1º e 2º Grau)';
+          opcoesescolhiveisc[6]:='Voltar';
           while (im1<=length(opcoesescolhiveisc)) do  //'Animação' das opções disponiveis e o seu centramento
             begin
               writeln;
@@ -59,6 +63,14 @@ procedure Calculadora;
                   Tabuada();
               end;
             4:
+              begin
+                  SomaNumeros();
+              end;
+            5:
+              begin
+                  Incognita();
+              end;
+            6:
               begin
                   respostac:='n';
                   Beep(300,50);

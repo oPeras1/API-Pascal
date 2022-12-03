@@ -1,4 +1,4 @@
-var respostappt,nomeppt,escolhappt,escolhamaquina,nomemaquina:string;
+var respostappt,nomeppt,escolhappt,escolhamaquina:string;
     melhorde,numrandom,numjogos,jogosganhosp,jogosganhosm,yppt1,yppt2,yppt3:integer;
 
 procedure PedraPapelTesoura;
@@ -10,7 +10,6 @@ procedure PedraPapelTesoura;
     textbackground(lightgray);
     textcolor(black);
     clrscr;
-    cursoroff; //desativa o cursor
     writeln;
     writeln;
     lenghtescolha:=(WindMaxX+1 - Length(stringfinal)+3) div 2+10;
@@ -61,6 +60,7 @@ procedure PedraPapelTesoura;
       clrscr;
       somamedia:=0;
       GotoXY(lenghtescolha-10,WhereY);
+      cursoron;
       write('Digite o seu nome: ');
       readln(nomeppt);
       writeln;
@@ -104,6 +104,7 @@ procedure PedraPapelTesoura;
       repeat
         window(1,yppt1+23,WindMaxX,WindMaxY);
         textcolor(black);
+        Randomize; //Gerar nova sequencia de numeros aleatorios
         numrandom:=random(2)+1; //Seleciona um numero aleatorio, de 0 até 2, somando 1, fica de 1 a 3
         escolhamaquina:='tesoura';
         if (numrandom=1) then
@@ -112,11 +113,10 @@ procedure PedraPapelTesoura;
           escolhamaquina:='papel';
         repeat
           GotoXY(lenghtescolha-10,WhereY);
-          cursoron;
           write('Pedra, Papel ou Tesoura? ');
           readln(escolhappt);
-          escolhappt:=lowercase(escolhappt);
           cursoroff;
+          escolhappt:=lowercase(escolhappt);
           writeln;
           writeln;
           if (escolhappt<>'pedra') and (escolhappt<>'papel') and (escolhappt<>'tesoura') then
@@ -172,6 +172,7 @@ procedure PedraPapelTesoura;
         write(stringfinal);
         window(1,yppt1+23,WindMaxX,WindMaxY);
         readkey;
+        cursoron;
         clrscr;
       until (numjogos=jogosganhosp) or (numjogos=jogosganhosm);
       writeln;
@@ -195,6 +196,8 @@ procedure PedraPapelTesoura;
       write('Pretende repetir? (S/N) ');
       readln(respostappt);
     until (lowercase(respostappt)<>'s');
+    cursoroff;
+    Beep(300,50);
     window(1,1,WindMaxX,WindMaxY);
   end;
 

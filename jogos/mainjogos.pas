@@ -2,6 +2,7 @@ var respostaj:string;
     opcoesescolhiveisj:array[1..5] of string;
 
 {$I 'jogos/pedrapapeltesoura.pas'}
+{$I 'jogos/jogogalo.pas'}
 
 procedure Jogos;
   begin
@@ -51,7 +52,7 @@ procedure Jogos;
           case MenuCimaBaixo(opcoesescolhiveisj,11) of
             1:
               begin
-                ProcedureTemporizador();
+                JogoGalo();
 
               end;
             2:

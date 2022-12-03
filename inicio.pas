@@ -1,8 +1,8 @@
 program inicio;
 
-uses sysutils, windows, MMSystem, Classes, variants, crt, graph, math, fphttpclient, openssl, opensslsockets, fpjson, jsonparser;
+uses sysutils, windows, MMSystem, Classes, variants, crt, graph, math, fphttpclient, openssl, opensslsockets, fpjson, jsonparser, dateutils;
 
-var respostamain,s:string;
+var respostamain,s,nomemaquina:string;
     textoopcao:array[1..7] of string;   //Opçoes passíveis de serem escolhidas
     im1,cursorp,volume,volumeantigo,valorcoord:integer;
     opcaopescolhermain,musicaloop,musicaambiente,primeiravez,cancelarmenu:bool;
@@ -201,6 +201,10 @@ begin
         begin
              respostamain:='n';
              opcaopescolhermain:=false;
+             Beep(300,200);
+             Beep(200,200);
+             Beep(100,200);
+             Beep(400,50);
         end;
     end;
   until (lowercase(respostamain)<>'s');
