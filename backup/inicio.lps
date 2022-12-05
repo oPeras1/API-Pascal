@@ -9,61 +9,54 @@
         <Filename Value="inicio.pas"/>
         <IsPartOfProject Value="True"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="139"/>
-        <CursorPos X="48" Y="154"/>
+        <TopLine Value="189"/>
+        <CursorPos X="60" Y="203"/>
         <UsageCount Value="211"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="ferramentas\alarme.pas"/>
-        <EditorIndex Value="15"/>
-        <TopLine Value="76"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="71"/>
         <CursorPos X="35" Y="97"/>
-        <UsageCount Value="105"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="94"/>
       </Unit>
       <Unit>
         <Filename Value="calculadora\maincalculadora.pas"/>
-        <EditorIndex Value="5"/>
-        <TopLine Value="28"/>
-        <CursorPos X="55" Y="52"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="8"/>
+        <CursorPos X="11" Y="15"/>
         <UsageCount Value="105"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="ferramentas\mainferramentas.pas"/>
-        <EditorIndex Value="7"/>
-        <TopLine Value="21"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="5"/>
         <CursorPos X="55" Y="50"/>
         <UsageCount Value="105"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="mp3\mainmp3.pas"/>
-        <EditorIndex Value="14"/>
-        <TopLine Value="245"/>
-        <CursorPos X="30" Y="80"/>
+        <EditorIndex Value="17"/>
+        <TopLine Value="165"/>
+        <CursorPos X="83" Y="182"/>
         <UsageCount Value="105"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="H:\Lazarus\fpc\3.2.2\source\packages\rtl-console\src\inc\crth.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="69"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="20"/>
         <CursorPos X="17" Y="76"/>
-        <UsageCount Value="43"/>
-      </Unit>
-      <Unit>
-        <Filename Value="H:\Lazarus\fpc\3.2.2\source\packages\winunits-base\src\mmsystem.pp"/>
-        <UnitName Value="MMSystem"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="20" Y="2625"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="40"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="ferramentas\relogio.pas"/>
-        <EditorIndex Value="13"/>
-        <TopLine Value="93"/>
+        <EditorIndex Value="16"/>
+        <TopLine Value="149"/>
         <CursorPos X="20" Y="103"/>
         <UsageCount Value="115"/>
         <Loaded Value="True"/>
@@ -73,235 +66,243 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="471"/>
         <CursorPos X="74" Y="222"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="29"/>
       </Unit>
       <Unit>
         <Filename Value="H:\Lazarus\fpc\3.2.2\source\rtl\win\wininc\defines.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="3450"/>
         <CursorPos X="137" Y="3659"/>
-        <UsageCount Value="23"/>
+        <UsageCount Value="9"/>
       </Unit>
       <Unit>
         <Filename Value="H:\Lazarus\fpc\3.2.2\source\packages\graph\src\inc\graphh.inc"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="71" Y="599"/>
-        <UsageCount Value="46"/>
+        <UsageCount Value="32"/>
       </Unit>
       <Unit>
         <Filename Value="calculadora\operacoes.pas"/>
-        <EditorIndex Value="11"/>
-        <TopLine Value="118"/>
+        <EditorIndex Value="14"/>
+        <TopLine Value="137"/>
         <CursorPos X="18" Y="169"/>
         <UsageCount Value="117"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="calculadora\media.pas"/>
-        <EditorIndex Value="12"/>
-        <TopLine Value="15"/>
+        <EditorIndex Value="15"/>
+        <TopLine Value="34"/>
         <CursorPos X="62" Y="60"/>
         <UsageCount Value="106"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="calculadora\tabuada.pas"/>
-        <EditorIndex Value="10"/>
-        <TopLine Value="14"/>
+        <EditorIndex Value="13"/>
+        <TopLine Value="26"/>
         <CursorPos X="18" Y="65"/>
         <UsageCount Value="105"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="jogos\mainjogos.pas"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="39"/>
-        <CursorPos X="25" Y="55"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="8"/>
+        <CursorPos X="54" Y="33"/>
         <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="jogos\pedrapapeltesoura.pas"/>
-        <EditorIndex Value="8"/>
-        <CursorPos X="26" Y="108"/>
+        <EditorIndex Value="10"/>
+        <CursorPos X="3" Y="2"/>
         <UsageCount Value="105"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="H:\Lazarus\fpc\3.2.2\source\rtl\objpas\sysutils\osutilsh.inc"/>
-        <EditorIndex Value="9"/>
+        <EditorIndex Value="12"/>
         <CursorPos X="33" Y="21"/>
-        <UsageCount Value="94"/>
+        <UsageCount Value="103"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="ferramentas\tempo.pas"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="40"/>
+        <EditorIndex Value="3"/>
         <CursorPos X="18" Y="47"/>
-        <UsageCount Value="87"/>
+        <UsageCount Value="101"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="H:\Lazarus\fpc\3.2.2\source\packages\rtl-objpas\src\inc\dateutil.inc"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="4"/>
         <TopLine Value="404"/>
         <CursorPos X="28" Y="427"/>
-        <UsageCount Value="57"/>
+        <UsageCount Value="115"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
-        <Filename Value="H:\Lazarus\fpc\3.2.2\source\packages\fcl-json\src\fpjson.pp"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="143"/>
-        <CursorPos X="14" Y="157"/>
-        <UsageCount Value="1"/>
-      </Unit>
-      <Unit>
         <Filename Value="calculadora\equacaoincognita.pas"/>
-        <EditorIndex Value="16"/>
-        <TopLine Value="58"/>
+        <EditorIndex Value="18"/>
+        <TopLine Value="77"/>
         <CursorPos X="31" Y="73"/>
-        <UsageCount Value="46"/>
+        <UsageCount Value="104"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="calculadora\somanumeros.pas"/>
-        <EditorIndex Value="6"/>
-        <TopLine Value="27"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="83"/>
         <CursorPos X="61" Y="48"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="102"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="jogos\jogogalo.pas"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="219"/>
-        <CursorPos X="43" Y="227"/>
-        <UsageCount Value="15"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="293"/>
+        <CursorPos X="20" Y="310"/>
+        <UsageCount Value="82"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="jogos\parimpar.pas"/>
+        <EditorIndex Value="11"/>
+        <TopLine Value="146"/>
+        <CursorPos X="202" Y="163"/>
+        <UsageCount Value="18"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="desenhos\quadro.pas"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="168"/>
+        <CursorPos X="37" Y="177"/>
+        <UsageCount Value="18"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
       <Position>
-        <Filename Value="inicio.pas"/>
-        <Caret Line="93" Column="54" TopLine="82"/>
+        <Filename Value="desenhos\quadro.pas"/>
+        <Caret Line="6" Column="20"/>
+      </Position>
+      <Position>
+        <Filename Value="desenhos\quadro.pas"/>
+        <Caret Line="55" Column="23" TopLine="49"/>
       </Position>
       <Position>
         <Filename Value="inicio.pas"/>
-        <Caret Line="847" Column="70" TopLine="819"/>
+        <Caret Line="205" Column="48" TopLine="189"/>
+      </Position>
+      <Position>
+        <Filename Value="desenhos\quadro.pas"/>
+        <Caret Line="2" Column="38"/>
       </Position>
       <Position>
         <Filename Value="inicio.pas"/>
-        <Caret Line="849" Column="80" TopLine="819"/>
+        <Caret Line="168" Column="67" TopLine="154"/>
+      </Position>
+      <Position>
+        <Filename Value="desenhos\quadro.pas"/>
+        <Caret Line="2" Column="46"/>
       </Position>
       <Position>
         <Filename Value="inicio.pas"/>
-        <Caret Line="846" Column="21" TopLine="819"/>
+        <Caret Line="171" Column="55" TopLine="154"/>
+      </Position>
+      <Position>
+        <Filename Value="desenhos\quadro.pas"/>
+        <Caret Line="95" Column="11" TopLine="61"/>
       </Position>
       <Position>
         <Filename Value="inicio.pas"/>
-        <Caret Line="848" Column="47" TopLine="819"/>
+        <Caret Line="91" Column="44" TopLine="71"/>
       </Position>
       <Position>
         <Filename Value="inicio.pas"/>
-        <Caret Line="286" Column="37" TopLine="268"/>
+        <Caret Line="84" Column="38" TopLine="71"/>
+      </Position>
+      <Position>
+        <Filename Value="desenhos\quadro.pas"/>
+        <Caret Line="97" Column="17" TopLine="66"/>
       </Position>
       <Position>
         <Filename Value="inicio.pas"/>
-        <Caret Line="886" Column="60" TopLine="880"/>
+        <Caret Line="179" Column="51" TopLine="162"/>
+      </Position>
+      <Position>
+        <Filename Value="desenhos\quadro.pas"/>
+        <Caret Line="32" Column="25" TopLine="15"/>
+      </Position>
+      <Position>
+        <Filename Value="desenhos\quadro.pas"/>
+        <Caret Line="33" Column="36" TopLine="17"/>
+      </Position>
+      <Position>
+        <Filename Value="desenhos\quadro.pas"/>
+        <Caret Line="122" Column="18" TopLine="106"/>
       </Position>
       <Position>
         <Filename Value="inicio.pas"/>
-        <Caret Line="29" Column="45" TopLine="22"/>
+        <Caret Line="204" Column="64" TopLine="189"/>
       </Position>
       <Position>
         <Filename Value="inicio.pas"/>
-        <Caret Line="36" Column="34" TopLine="29"/>
+        <Caret Line="15" Column="48"/>
       </Position>
       <Position>
-        <Filename Value="jogos\jogogalo.pas"/>
-        <Caret Line="8" Column="40"/>
-      </Position>
-      <Position>
-        <Filename Value="jogos\jogogalo.pas"/>
-        <Caret Line="33" Column="11"/>
-      </Position>
-      <Position>
-        <Filename Value="jogos\jogogalo.pas"/>
-        <Caret Line="125" Column="37" TopLine="111"/>
+        <Filename Value="desenhos\quadro.pas"/>
+        <Caret Line="154" Column="42" TopLine="137"/>
       </Position>
       <Position>
         <Filename Value="inicio.pas"/>
-        <Caret Line="40" Column="41" TopLine="29"/>
+        <Caret Line="7" Column="53" TopLine="106"/>
       </Position>
       <Position>
         <Filename Value="inicio.pas"/>
-        <Caret Line="134" Column="39" TopLine="125"/>
+        <Caret Line="128" Column="15" TopLine="112"/>
       </Position>
       <Position>
         <Filename Value="inicio.pas"/>
-        <Caret Line="192" Column="47" TopLine="181"/>
+        <Caret Line="124" Column="14" TopLine="112"/>
       </Position>
       <Position>
-        <Filename Value="jogos\jogogalo.pas"/>
-        <Caret Line="152" Column="31" TopLine="139"/>
+        <Filename Value="H:\Lazarus\fpc\3.2.2\source\packages\rtl-console\src\inc\crth.inc"/>
+        <Caret Line="76" Column="10" TopLine="60"/>
       </Position>
       <Position>
-        <Filename Value="jogos\jogogalo.pas"/>
-        <Caret Line="163" Column="21" TopLine="152"/>
+        <Filename Value="desenhos\quadro.pas"/>
+        <Caret Line="156" Column="24" TopLine="133"/>
       </Position>
       <Position>
-        <Filename Value="inicio.pas"/>
-        <Caret Line="36" Column="79" TopLine="22"/>
-      </Position>
-      <Position>
-        <Filename Value="inicio.pas"/>
-        <Caret Line="93" Column="45" TopLine="78"/>
+        <Filename Value="desenhos\quadro.pas"/>
+        <Caret Line="153" Column="26" TopLine="133"/>
       </Position>
       <Position>
         <Filename Value="inicio.pas"/>
-        <Caret Line="90" Column="37" TopLine="78"/>
-      </Position>
-      <Position>
-        <Filename Value="jogos\jogogalo.pas"/>
-        <Caret Line="252" Column="44" TopLine="234"/>
+        <Caret Line="122" Column="15" TopLine="99"/>
       </Position>
       <Position>
         <Filename Value="inicio.pas"/>
-        <Caret Line="198" Column="46" TopLine="181"/>
-      </Position>
-      <Position>
-        <Filename Value="jogos\jogogalo.pas"/>
-        <Caret Line="398" Column="13" TopLine="369"/>
+        <Caret Line="124" Column="23" TopLine="108"/>
       </Position>
       <Position>
         <Filename Value="inicio.pas"/>
-        <Caret Line="194" Column="50" TopLine="181"/>
+        <Caret Line="125" Column="35" TopLine="109"/>
       </Position>
       <Position>
         <Filename Value="inicio.pas"/>
-        <Caret Line="119" Column="35" TopLine="111"/>
-      </Position>
-      <Position>
-        <Filename Value="jogos\jogogalo.pas"/>
-        <Caret Line="360" Column="27" TopLine="332"/>
+        <Caret Line="149" Column="48" TopLine="127"/>
       </Position>
       <Position>
         <Filename Value="inicio.pas"/>
-        <Caret Line="119" Column="38" TopLine="111"/>
+        <Caret Line="157" Column="53" TopLine="127"/>
       </Position>
       <Position>
         <Filename Value="inicio.pas"/>
-        <Caret Line="123" Column="53" TopLine="111"/>
-      </Position>
-      <Position>
-        <Filename Value="jogos\jogogalo.pas"/>
-        <Caret Line="68" Column="44" TopLine="53"/>
-      </Position>
-      <Position>
-        <Filename Value="jogos\jogogalo.pas"/>
-        <Caret Column="2"/>
+        <Caret Line="148" Column="51" TopLine="127"/>
       </Position>
     </JumpHistory>
     <RunParams>
@@ -316,4 +317,15 @@
       <List Name="CommandLineParameters" Count="1"/>
     </HistoryLists>
   </ProjectSession>
+  <Debugging>
+    <BreakPoints>
+      <Item>
+        <Kind Value="bpkSource"/>
+        <WatchScope Value="wpsLocal"/>
+        <WatchKind Value="wpkWrite"/>
+        <Source Value="desenhos\quadro.pas"/>
+        <Line Value="5"/>
+      </Item>
+    </BreakPoints>
+  </Debugging>
 </CONFIG>

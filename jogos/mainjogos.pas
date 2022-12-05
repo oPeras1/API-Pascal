@@ -3,6 +3,7 @@ var respostaj:string;
 
 {$I 'jogos/pedrapapeltesoura.pas'}
 {$I 'jogos/jogogalo.pas'}
+{$I 'jogos/parimpar.pas'}
 
 procedure Jogos;
   begin
@@ -36,7 +37,7 @@ procedure Jogos;
           writeln;
           im1:=1;
           opcoesescolhiveisj[1]:='Jogo do Galo';       //Definir todas as opções
-          opcoesescolhiveisj[2]:='Quatro em Linha';
+          opcoesescolhiveisj[2]:='Jogo da Forca';
           opcoesescolhiveisj[3]:='Pedra, Papel ou Tesoura';
           opcoesescolhiveisj[4]:='Par ou Ímpar';
           opcoesescolhiveisj[5]:='Voltar';
@@ -63,11 +64,10 @@ procedure Jogos;
             3:
               begin
                 PedraPapelTesoura();
-
               end;
             4:
               begin
-
+                ParImpar();
               end;
             5:
               begin

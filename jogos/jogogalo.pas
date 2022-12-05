@@ -1,8 +1,8 @@
-var loopjogogalo,lugaratual,valorx,valory,xinicial,yinicial,sitioescolhido,numsitiolivre:integer;
+var loopjogogalo,ygotoinicial,loopjogogalo2,lugaratual,valorx,valory,xinicial,yinicial,sitioescolhido,numsitiolivre,casotraco,xtraco,ytraco:integer;
     lugarlivre:array[1..9] of bool;//Lugares livres, onde 1 representa se esta livre ou nao, e 2 a coord central
     lugaresmaquina:array[1..9] of bool;//Lugares ocupados pela maquina
     lugaresjogador:array[1..9] of bool;//Lugares ocupados pelo jogador
-    partetabela,nomegalo,respostagolo,vencedor:string;
+    partetabela,nomegalo,respostagalo,vencedor,tipovitoria:string;
     jogoativo:bool;
 
 procedure ObterXYGalo(valorpos:integer); //MENU PARA SUBIR,DESCER, TROCAR DE MENUS...
@@ -38,26 +38,64 @@ procedure VerificarVencedor;
     if ((lugaresmaquina[1]) and (lugaresmaquina[2]) and (lugaresmaquina[3])) or ((lugaresmaquina[4]) and (lugaresmaquina[5]) and (lugaresmaquina[6])) or ((lugaresmaquina[7]) and (lugaresmaquina[8]) and (lugaresmaquina[9])) then //vitorias horizontais
       begin
         vencedor:=nomemaquina;
+        tipovitoria:='horizontal';
+        if ((lugaresmaquina[1]) and (lugaresmaquina[2]) and (lugaresmaquina[3])) then  //posicao para desenhar os traços
+          casotraco:=1
+        else if ((lugaresmaquina[4]) and (lugaresmaquina[5]) and (lugaresmaquina[6])) then
+          casotraco:=2
+        else if ((lugaresmaquina[7]) and (lugaresmaquina[8]) and (lugaresmaquina[9])) then
+          casotraco:=3;
       end
     else if ((lugaresmaquina[1]) and (lugaresmaquina[5]) and (lugaresmaquina[9])) or ((lugaresmaquina[3]) and (lugaresmaquina[5]) and (lugaresmaquina[7])) then //vitorias diagonais
       begin
         vencedor:=nomemaquina;
+        tipovitoria:='diagonal';
+        if ((lugaresmaquina[1]) and (lugaresmaquina[5]) and (lugaresmaquina[9])) then  //posicao para desenhar os traços
+          casotraco:=1
+        else if ((lugaresmaquina[3]) and (lugaresmaquina[5]) and (lugaresmaquina[7])) then
+          casotraco:=2;
       end
     else if ((lugaresmaquina[1]) and (lugaresmaquina[4]) and (lugaresmaquina[7])) or ((lugaresmaquina[2]) and (lugaresmaquina[5]) and (lugaresmaquina[8])) or ((lugaresmaquina[3]) and (lugaresmaquina[6]) and (lugaresmaquina[9])) then //vitorias verticais
       begin
         vencedor:=nomemaquina;
+        tipovitoria:='vertical';
+        if ((lugaresmaquina[1]) and (lugaresmaquina[4]) and (lugaresmaquina[7])) then  //posicao para desenhar os traços
+          casotraco:=1
+        else if ((lugaresmaquina[2]) and (lugaresmaquina[5]) and (lugaresmaquina[8])) then
+          casotraco:=3
+        else if ((lugaresmaquina[3]) and (lugaresmaquina[6]) and (lugaresmaquina[9])) then
+          casotraco:=5;
       end
     else if ((lugaresjogador[1]) and (lugaresjogador[2]) and (lugaresjogador[3])) or ((lugaresjogador[4]) and (lugaresjogador[5]) and (lugaresjogador[6])) or ((lugaresjogador[7]) and (lugaresjogador[8]) and (lugaresjogador[9])) then //vitorias horizontais
       begin
         vencedor:=nomegalo;
+        tipovitoria:='horizontal';
+        if ((lugaresjogador[1]) and (lugaresjogador[2]) and (lugaresjogador[3])) then  //posicao para desenhar os traços
+          casotraco:=1
+        else if ((lugaresjogador[4]) and (lugaresjogador[5]) and (lugaresjogador[6])) then
+          casotraco:=2
+        else if ((lugaresjogador[7]) and (lugaresjogador[8]) and (lugaresjogador[9])) then
+          casotraco:=3;
       end
     else if ((lugaresjogador[1]) and (lugaresjogador[5]) and (lugaresjogador[9])) or ((lugaresjogador[3]) and (lugaresjogador[5]) and (lugaresjogador[7])) then //vitorias diagonais
       begin
         vencedor:=nomegalo;
+        tipovitoria:='diagonal';
+        if ((lugaresjogador[1]) and (lugaresjogador[5]) and (lugaresjogador[9])) then  //posicao para desenhar os traços
+          casotraco:=1
+        else if ((lugaresjogador[3]) and (lugaresjogador[5]) and (lugaresjogador[7])) then
+          casotraco:=2;
       end
     else if ((lugaresjogador[1]) and (lugaresjogador[4]) and (lugaresjogador[7])) or ((lugaresjogador[2]) and (lugaresjogador[5]) and (lugaresjogador[8])) or ((lugaresjogador[3]) and (lugaresjogador[6]) and (lugaresjogador[9])) then //vitorias verticais
       begin
         vencedor:=nomegalo;
+        tipovitoria:='vertical';
+        if ((lugaresjogador[1]) and (lugaresjogador[4]) and (lugaresjogador[7])) then  //posicao para desenhar os traços
+          casotraco:=1
+        else if ((lugaresjogador[2]) and (lugaresjogador[5]) and (lugaresjogador[8])) then
+          casotraco:=3
+        else if ((lugaresjogador[3]) and (lugaresjogador[6]) and (lugaresjogador[9])) then
+          casotraco:=5;
       end
     else
       begin
@@ -76,7 +114,7 @@ procedure JogoGalo;
     begin
     Beep(700,50);
     stringfinal:='\____/\____/\__, /\____/';
-    respostagolo:='s';
+    respostagalo:='s';
     textbackground(lightgray);
     textcolor(black);
     clrscr;
@@ -121,10 +159,14 @@ procedure JogoGalo;
     writeln(stringfinal);
     partetabela:='_____________|_____________|_____________';
     end;
+    ygotoinicial:=WhereY;
     repeat
-      GotoXY(lenghtescolha-10,Wherey+2);
+      window(1,1,WindMaxX,WindMaxY);
+      GotoXY(lenghtescolha-10,ygotoinicial+2);
+      DelLine;
+      GotoXY(lenghtescolha-10,ygotoinicial+2);
       write('Digite o seu nome: ');
-      read(nomegalo);
+      readln(nomegalo);
       nomemaquina:=sysutils.GetEnvironmentVariable('COMPUTERNAME');
       stringfinal:=nomegalo+' <--- VS ---> '+nomemaquina;
       GotoXY(((WindMaxX - Length(stringfinal)) div 2),WhereY-1);
@@ -197,10 +239,10 @@ procedure JogoGalo;
                 if (lugaratual=1) then
                   lugaratual:=10;
                 lugaratual:=lugaratual-1;
-                while (not lugarlivre[lugaratual]) do //se ta ocupado avançar 1 casa
+                while (not lugarlivre[lugaratual]) do //se ta ocupado recuar 1 casa
                   begin
-                    lugaratual:=lugaratual+1;
-                    if (lugaratual>=10) then
+                    lugaratual:=lugaratual-1;
+                    if (lugaratual<=0) then
                       lugaratual:=1;
                   end;
                 ObterXYGalo(lugaratual);
@@ -283,7 +325,6 @@ procedure JogoGalo;
                 window(xinicial,yinicial,WindMaxX,WindMaxY);
                 vencedor:='nenhum';
                 VerificarVencedor; //verificar se houve vitoria
-                Delay(500);
                 //Maquina escolher um sitio para colocar a O
                 if (((lugaresmaquina[1]) and (lugaresmaquina[2])) or ((lugaresmaquina[6]) and (lugaresmaquina[9])) or ((lugaresmaquina[5]) and (lugaresmaquina[7]))) and (lugarlivre[3]) then       //Maquina "inteligente", para escolher lugares que a façam ganhar
                     lugaratual:=3
@@ -293,7 +334,7 @@ procedure JogoGalo;
                     lugaratual:=1
                 else if (((lugaresmaquina[3]) and (lugaresmaquina[9])) or ((lugaresmaquina[4]) and (lugaresmaquina[5]))) and (lugarlivre[6]) then
                     lugaratual:=6
-                else if (((lugaresmaquina[4]) and (lugaresmaquina[6])) or ((lugaresmaquina[2]) and (lugaresmaquina[8])) or ((lugaresmaquina[1]) and (lugaresmaquina[9]))) and (lugarlivre[5]) then
+                else if (((lugaresmaquina[4]) and (lugaresmaquina[6])) or ((lugaresmaquina[2]) and (lugaresmaquina[8])) or ((lugaresmaquina[1]) and (lugaresmaquina[9])) or ((lugaresmaquina[3]) and (lugaresmaquina[7]))) and (lugarlivre[5]) then
                     lugaratual:=5
                 else if (((lugaresmaquina[1]) and (lugaresmaquina[7])) or ((lugaresmaquina[5]) and (lugaresmaquina[6]))) and (lugarlivre[4]) then
                     lugaratual:=4
@@ -311,7 +352,7 @@ procedure JogoGalo;
                     lugaratual:=1
                 else if (((lugaresjogador[3]) and (lugaresjogador[9])) or ((lugaresjogador[4]) and (lugaresjogador[5]))) and (lugarlivre[6]) then
                     lugaratual:=6
-                else if (((lugaresjogador[4]) and (lugaresjogador[6])) or ((lugaresjogador[2]) and (lugaresjogador[8])) or ((lugaresjogador[1]) and (lugaresjogador[9]))) and (lugarlivre[5]) then
+                else if (((lugaresjogador[4]) and (lugaresjogador[6])) or ((lugaresjogador[2]) and (lugaresjogador[8])) or ((lugaresjogador[1]) and (lugaresjogador[9])) or ((lugaresjogador[3]) and (lugaresjogador[7]))) and (lugarlivre[5]) then
                     lugaratual:=5
                 else if (((lugaresjogador[1]) and (lugaresjogador[7])) or ((lugaresjogador[5]) and (lugaresjogador[6]))) and (lugarlivre[4]) then
                     lugaratual:=4
@@ -358,6 +399,7 @@ procedure JogoGalo;
                     lugaresmaquina[lugaratual]:=true;
                     window(xinicial+valorx-7,yinicial+valory-4,WindMaxX,WindMaxY);//criar janela para desenhar o X
                     GotoXY(1,1);
+                    Delay(500);
 	            writeln('    _____    ');
 	            writeln('  ,´     `.  ');
 	            writeln(' /         \ ');
@@ -371,21 +413,129 @@ procedure JogoGalo;
                         if (lugaratual>=10) then
                           lugaratual:=1;
                       end;
+                    ObterXYGalo(lugaratual);
+                    textbackground(cyan);
+                    GotoXY(valorx,valory);
+                    writeln(' ');
+                    textbackground(black);
                   end;
                   VerificarVencedor; //verificar se houve vitoria
                   if (vencedor<>'nenhum') then
                     begin
-                      Delay(2000);
-                      window(xinicial,yinicial,WindMaxX,WindMaxY);
+                      if (vencedor<>'Empate') then
+                        textbackground(cyan);
+                        if (tipovitoria='horizontal') then
+                          begin
+                            xtraco:=1;
+                            case casotraco of
+                              1:
+                                ytraco:=4;
+                              2:
+                                ytraco:=11;
+                              3:
+                                ytraco:=18;
+                            end;
+                            GotoXY(xtraco,ytraco);
+                            textcolor(cyan);
+                            for loopjogogalo:=1 to 40 do
+                              begin
+                                write('-');
+                                Delay(20);
+                              end;
+                              writeln;
+                          end
+                        else if (tipovitoria='vertical') then
+                          begin
+                            xtraco:=7*casotraco;
+                            ytraco:=1;
+                            GotoXY(xtraco,ytraco);
+                            textcolor(cyan);
+                            for loopjogogalo:=1 to 21 do
+                              begin
+                                GotoXY(xtraco,WhereY);
+                                writeln('|');
+                                Delay(20);
+                              end;
+                              writeln;
+                          end
+                        else if (tipovitoria='diagonal') then
+                          begin
+                            case casotraco of
+                              1:
+                                begin
+                                  xtraco:=13;
+                                  ytraco:=7;
+                                  for loopjogogalo2:=3 downto 1 do
+                                    begin
+                                      textcolor(cyan);
+                                      xtraco:=13*loopjogogalo2+(loopjogogalo2-1);
+                                      ytraco:=7*loopjogogalo2;
+                                      GotoXY(xtraco,ytraco);
+                                      for loopjogogalo:=1 to 7 do
+                                        begin
+                                            GotoXY(xtraco,ytraco);
+                                            write('\');
+                                            xtraco:=xtraco-2;
+                                            ytraco:=ytraco-1;
+                                            Delay(20);
+                                        end;
+                                        writeln;
+                                    end;
+                                end;
+                              2:
+                                begin
+                                  xtraco:=1;
+                                  ytraco:=21;
+                                  for loopjogogalo2:=3 downto 1 do
+                                    begin
+                                      textcolor(cyan);
+                                      xtraco:=13*loopjogogalo2+(loopjogogalo2-1);
+                                      ytraco:=15-7*(loopjogogalo2-1);
+                                      GotoXY(xtraco,ytraco);
+                                      for loopjogogalo:=1 to 7 do
+                                        begin
+                                            GotoXY(xtraco,ytraco);
+                                            write('/');
+                                            xtraco:=xtraco-2;
+                                            ytraco:=ytraco+1;
+                                            Delay(20);
+                                        end;
+                                        writeln;
+                                    end;
+                                end;
+                            end;
+                          end;
+                      textbackground(lightgray);
+                      Delay(3000);
                       clrscr;
+                      window(1,yinicial,WindMaxX,WindMaxY);
+                      if (vencedor=nomemaquina) then
+                        begin
+                          textcolor(red);
+                          writelnxy('Infelizmente perdeste contra a máquina '+nomemaquina+'...',0,yinicial);
+                        end
+                      else if (vencedor=nomegalo)then
+                        begin
+                          textcolor(green);
+                          writelnxy('Parabéns! Ganhaste contra a máquina '+nomemaquina+'...',0,yinicial);
+                        end
+                      else
+                        begin
+                          textcolor(yellow);
+                          writelnxy('Empataste contra a máquina '+nomemaquina+'...',0,yinicial);
+                        end;
                       textcolor(black);
-                      writeln('vencedor: ',vencedor);//possivelvencedor passa a ser o real vencedor
                       Delay(1000);
                       jogoativo:=false;
                     end;
                 end;
               end;
-            write('Pretende repetir? (S/N) ');
-            readln(respostagolo);
-    until (respostagolo<>'s');
+            writeln;
+            writeln;
+            writeln;
+            writexy('Pretende jogar novamente? (S/N) ',0,WhereY);
+            readln(respostagalo);
+            window(1,yinicial,WindMaxX,WindMaxY);
+            clrscr;
+    until (respostagalo<>'s');
   end;

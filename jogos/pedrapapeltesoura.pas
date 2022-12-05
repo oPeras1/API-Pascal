@@ -1,7 +1,6 @@
-var respostappt,nomeppt,escolhappt,escolhamaquina:string;
-    melhorde,numrandom,numjogos,jogosganhosp,jogosganhosm,yppt1,yppt2,yppt3:integer;
-
 procedure PedraPapelTesoura;
+  var respostappt,nomeppt,escolhappt,escolhamaquina:string;
+    melhorde,numrandom,numjogos,jogosganhosp,jogosganhosm,yppt1,yppt2,yppt3:integer;
   begin
     Beep(700,50);
     Randomize; //Gerar nova sequencia de numeros aleatorios

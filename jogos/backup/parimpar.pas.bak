@@ -1,9 +1,11 @@
-procedure PedraPapelTesoura;
+procedure ParImpar;
+  var respostapi,nomepi,escolhapi:string;
+    melhorde,escolhapinum,numrandom,numjogos,jogosganhosp,jogosganhosm,yppt1,yppt2,yppt3,escolhamaquina:integer;
   begin
     Beep(700,50);
     Randomize; //Gerar nova sequencia de numeros aleatorios
-    respostappt:='s';
-    stringfinal:='/_/    \___/\__,_/_/   \__,_/';
+    respostapi:='s';
+    stringfinal:='/_/    \__,_/_/     ';
     textbackground(lightgray);
     textcolor(black);
     clrscr;
@@ -11,41 +13,41 @@ procedure PedraPapelTesoura;
     writeln;
     lenghtescolha:=(WindMaxX+1 - Length(stringfinal)+3) div 2+10;
     GotoXY(lenghtescolha-10,WhereY);
-    writeln('    ____           __          ');
+    writeln('    ____            ');
     GotoXY(lenghtescolha-10,WhereY);
-    writeln('   / __ \___  ____/ /________ _');
+    writeln('   / __ \____ ______');
     GotoXY(lenghtescolha-10,WhereY);
-    writeln('  / /_/ / _ \/ __  / ___/ __ `/');
+    writeln('  / /_/ / __ `/ ___/');
     GotoXY(lenghtescolha-10,WhereY);
-    writeln(' / ____/  __/ /_/ / /  / /_/ / ');
+    writeln(' / ____/ /_/ / /    ');
     GotoXY(lenghtescolha-10,WhereY);
     writeln(stringfinal);
-    stringfinal:='/_/    \__,_/ .___/\___/_/';
+    stringfinal:='\____/\__,_/ ';
     lenghtescolha:=(WindMaxX+1 - Length(stringfinal)+3) div 2+10;
     GotoXY(lenghtescolha-10,WhereY+1);
-    writeln('    ____                   __');
+    writeln('   ____       ');
     GotoXY(lenghtescolha-10,WhereY);
-    writeln('   / __ \____ _____  ___  / /');
+    writeln('  / __ \__  __');
     GotoXY(lenghtescolha-10,WhereY);
-    writeln('  / /_/ / __ `/ __ \/ _ \/ / ');
+    writeln(' / / / / / / /');
     GotoXY(lenghtescolha-10,WhereY);
-    writeln(' / ____/ /_/ / /_/ /  __/ /  ');
+    writeln('/ /_/ / /_/ / ');
     GotoXY(lenghtescolha-10,WhereY);
     writeln(stringfinal);
-    GotoXY(lenghtescolha-10,WhereY);
-    writeln('           /_/               ');
-    stringfinal:='/_/  \___/____/\____/\__,_/_/   \__,_/';
+    stringfinal:='/___/_/ /_/ /_/ .___/\__,_/_/     ';
     lenghtescolha:=(WindMaxX+1 - Length(stringfinal)+3) div 2+10;
     GotoXY(lenghtescolha-10,WhereY+1);
-    writeln('  ______                                ');
+    writeln('    ____                          ');
     GotoXY(lenghtescolha-10,WhereY);
-    writeln(' /_  __/__  _________  __  ___________ _');
+    writeln('   /  _/___ ___  ____  ____ ______');
     GotoXY(lenghtescolha-10,WhereY);
-    writeln('  / / / _ \/ ___/ __ \/ / / / ___/ __ `/');
+    writeln('   / // __ `__ \/ __ \/ __ `/ ___/');
     GotoXY(lenghtescolha-10,WhereY);
-    writeln(' / / /  __(__  ) /_/ / /_/ / /  / /_/ / ');
+    writeln(' _/ // / / / / / /_/ / /_/ / /    ');
     GotoXY(lenghtescolha-10,WhereY);
     writeln(stringfinal);
+    GotoXY(lenghtescolha-10,WhereY);
+    writeln('             /_/                  ');
     writeln;
     writeln;
     yppt2:=WhereY;
@@ -59,7 +61,7 @@ procedure PedraPapelTesoura;
       GotoXY(lenghtescolha-10,WhereY);
       cursoron;
       write('Digite o seu nome: ');
-      readln(nomeppt);
+      readln(nomepi);
       writeln;
       repeat
         GotoXY(lenghtescolha-10,WhereY);
@@ -87,9 +89,9 @@ procedure PedraPapelTesoura;
       writeln;
       nomemaquina:=sysutils.GetEnvironmentVariable('COMPUTERNAME');
       stringfinal:=' <--- VS ---> ';
-      GotoXY(((WindMaxX+1 - Length(stringfinal)) div 2)-Length(nomeppt),WhereY);
+      GotoXY(((WindMaxX+1 - Length(stringfinal)) div 2)-Length(nomepi),WhereY);
       textcolor(cyan);
-      writeln(nomeppt,stringfinal,nomemaquina);
+      writeln(nomepi,stringfinal,nomemaquina);
       writeln;
       yppt3:=WhereY;
       stringfinal:=IntToStr(jogosganhosp)+' - '+IntToStr(jogosganhosm);
@@ -102,21 +104,17 @@ procedure PedraPapelTesoura;
         window(1,yppt1+23,WindMaxX,WindMaxY);
         textcolor(black);
         Randomize; //Gerar nova sequencia de numeros aleatorios
-        numrandom:=random(2)+1; //Seleciona um numero aleatorio, de 0 até 2, somando 1, fica de 1 a 3
-        escolhamaquina:='tesoura';
-        if (numrandom=1) then
-          escolhamaquina:='pedra'
-        else if (numrandom=2) then
-          escolhamaquina:='papel';
+        numrandom:=random(9)+1; //Seleciona um numero aleatorio, de 0 até 9, somando 1, fica de 1 a 10
+        escolhamaquina:=numrandom;
         repeat
           GotoXY(lenghtescolha-10,WhereY);
-          write('Pedra, Papel ou Tesoura? ');
-          readln(escolhappt);
+          write('Par ou ímpar? (P/I) ');
+          readln(escolhapi);
           cursoroff;
-          escolhappt:=lowercase(escolhappt);
+          escolhapi:=lowercase(escolhapI);
           writeln;
           writeln;
-          if (escolhappt<>'pedra') and (escolhappt<>'papel') and (escolhappt<>'tesoura') then
+          if (escolhapi<>'p') and (escolhapi<>'i') then
             begin
               textcolor(red);
               stringfinal:='______Opção Inválida______';
@@ -128,23 +126,42 @@ procedure PedraPapelTesoura;
               writeln;
               textcolor(black);
             end;
-        until (escolhappt='pedra') or (escolhappt='papel') or(escolhappt='tesoura');
-        stringfinal:='O jogador '+nomeppt+' escolheu '+escolhappt+' e o jogador '+nomemaquina+' escolheu '+escolhamaquina;
+        until (escolhapi='p') or (escolhapi='i');
+        repeat
+          GotoXY(lenghtescolha-10,WhereY);
+          write('Escolha um número de 1 a 10: ');
+          readln(escolhapinum);
+          cursoroff;
+          writeln;
+          writeln;
+          if (escolhapinum<=0) or (escolhapinum>10) then
+            begin
+              textcolor(red);
+              stringfinal:='______Opção Inválida______';
+              GotoXY(lenghtescolha-5,WhereY);
+              writeln('______               ______');
+              GotoXY(lenghtescolha-5,WhereY);
+              writeln(stringfinal);
+              writeln;
+              writeln;
+              textcolor(black);
+            end;
+        until (escolhapinum<=10) and (escolhapinum>=1);
+        if (escolhapi='i') then
+          escolhapi:='Ímpar'
+        else
+          escolhapi:='Par';
+        stringfinal:='O jogador '+nomepi+' escolheu '+escolhapi+' e escolheu o número '+IntToStr(escolhapinum)+' e o jogador '+nomemaquina+' escolheu '+IntToStr(escolhamaquina);
         GotoXY((WindMaxX - Length(stringfinal)) div 2,WhereY);
         writeln(stringfinal);
-        if ((escolhamaquina='pedra') and (escolhappt='tesoura')) or ((escolhamaquina='papel') and (escolhappt='pedra')) or ((escolhamaquina='tesoura') and (escolhappt='papel')) then //Maquina vence
+        if ((escolhapi='Ímpar') and (((escolhapinum+escolhamaquina) MOD 2) = 0)) or ((escolhapi='Par') and (((escolhapinum+escolhamaquina) MOD 2) <> 0)) then //Maquina vence
           begin;
             jogosganhosm:=jogosganhosm+1;
-            stringfinal:='O vencedor é: '+nomemaquina;
+            if (escolhapi='Ímpar') then
+              stringfinal:='O vencedor é: '+nomemaquina+', pois a soma de '+(IntToStr(escolhapinum))+'+'+(IntToStr(escolhamaquina))+'='+(IntToStr(escolhamaquina+escolhapinum))+' que é um número par'
+            else
+              stringfinal:='O vencedor é: '+nomemaquina+', pois a soma de '+(IntToStr(escolhapinum))+'+'+(IntToStr(escolhamaquina))+'='+(IntToStr(escolhamaquina+escolhapinum))+' que é um número ímpar'
             textcolor(red);
-            GotoXY((WindMaxX - Length(stringfinal)) div 2,WhereY+1);
-            writeln(stringfinal);
-            textcolor(black);
-          end
-        else if (escolhamaquina=escolhappt) then //Empate
-          begin
-            textcolor(yellow);
-            stringfinal:='Houve um empate!';
             GotoXY((WindMaxX - Length(stringfinal)) div 2,WhereY+1);
             writeln(stringfinal);
             textcolor(black);
@@ -153,7 +170,10 @@ procedure PedraPapelTesoura;
           begin
             jogosganhosp:=jogosganhosp+1;
             textcolor(green);
-            stringfinal:='O vencedor é: '+nomeppt;
+            if (escolhapi='Ímpar') then
+              stringfinal:='O vencedor é: '+nomemaquina+', pois a soma de '+(IntToStr(escolhapinum))+'+'+(IntToStr(escolhamaquina))+'='+(IntToStr(escolhamaquina+escolhapinum))+' que é um número ímpar'
+            else
+              stringfinal:='O vencedor é: '+nomemaquina+', pois a soma de '+(IntToStr(escolhapinum))+'+'+(IntToStr(escolhamaquina))+'='+(IntToStr(escolhamaquina+escolhapinum))+' que é um número par';
             GotoXY((WindMaxX - Length(stringfinal)) div 2,WhereY+1);
             writeln(stringfinal);
             textcolor(black);
@@ -191,8 +211,8 @@ procedure PedraPapelTesoura;
       textcolor(black);
       GotoXY(lenghtescolha-10,WhereY+2);
       write('Pretende repetir? (S/N) ');
-      readln(respostappt);
-    until (lowercase(respostappt)<>'s');
+      readln(respostapi);
+    until (lowercase(respostapi)<>'s');
     cursoroff;
     Beep(300,50);
     window(1,1,WindMaxX,WindMaxY);

@@ -1,6 +1,6 @@
 program inicio;
 
-uses sysutils, windows, MMSystem, Classes, variants, crt, graph, math, fphttpclient, openssl, opensslsockets, fpjson, jsonparser, dateutils;
+uses sysutils, windows, MMSystem, Classes, variants, crt, graph, math, fphttpclient, openssl, opensslsockets, fpjson, jsonparser, dateutils, keyboard;
 
 var respostamain,s,nomemaquina:string;
     textoopcao:array[1..7] of string;   //Opçoes passíveis de serem escolhidas
@@ -27,6 +27,13 @@ procedure writelnxy(frase:string;xadicional:integer;y:integer);
     UpdateCrtDimensions;
     GotoXY((WindMaxX - Length(frase)) div 2+xadicional,y);
     writeln(frase);
+  end;
+
+procedure writexy(frase:string;xadicional:integer;y:integer);
+  begin
+    UpdateCrtDimensions;
+    GotoXY((WindMaxX - Length(frase)) div 2+xadicional,y);
+    write(frase);
   end;
 
 function MenuCimaBaixo(arrarmenu:array of string;somay:integer): integer; //MENU PARA SUBIR,DESCER, TROCAR DE MENUS...
@@ -75,6 +82,7 @@ function MenuCimaBaixo(arrarmenu:array of string;somay:integer): integer; //MENU
 {$I 'calculadora/maincalculadora.pas'}
 {$I 'jogos/mainjogos.pas'}
 {$I 'mp3/mainmp3.pas'}
+{$I 'desenhos/quadro.pas'}
 
 procedure CentrarTexto(ipos:integer);
   begin
@@ -180,7 +188,7 @@ begin
         end;
       3:
         begin
-             //Desenhos();
+             Quadro;
              opcaopescolhermain:=false;
         end;
       4:
