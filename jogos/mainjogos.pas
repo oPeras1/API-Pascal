@@ -4,6 +4,7 @@ var respostaj:string;
 {$I 'jogos/pedrapapeltesoura.pas'}
 {$I 'jogos/jogogalo.pas'}
 {$I 'jogos/parimpar.pas'}
+{$I 'jogos/forca.pas'}
 
 procedure Jogos;
   begin
@@ -58,8 +59,7 @@ procedure Jogos;
               end;
             2:
               begin
-                AbrirRelogio();
-
+                JogoForca();
               end;
             3:
               begin

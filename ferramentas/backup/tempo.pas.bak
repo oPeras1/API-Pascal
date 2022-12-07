@@ -1,7 +1,5 @@
-var HTTPS:TFPHttpClient;
-   localizacao,ConteudoJSON,valorpais,respostamet,clima,descricao,paisescolhido:string;
+var localizacao,valorpais,respostamet,clima,descricao,paisescolhido:string;
    tempatual,tempsens,tempmin,tempmax,pressure,humidity,sea_level,visibilidade,vento:real;
-   JSONString:TJSONData;
    numlugares,loopfortempo,lugardef,nascerdosol,pordosol:integer;
    lat,lon:real;
 
@@ -44,7 +42,7 @@ procedure TempoCidade;
        GotoXY(((WindMaxX+1 - Length(stringfinal)) div 2),WhereY);
        write('  Localização: ');
        readln(localizacao);
-
+       cursoroff;
        //IR BUSCAR A LONGITUDE E A LATITUDE DE UM LUGAR COM X NOME
        ConteudoJSON:=HTTPS.Get('https://api.openweathermap.org/geo/1.0/direct?q='+localizacao+'&limit=5&appid=8b827ad11875bddec581fa5734ceab8c'); //obter dados sobre lugares com esse nome
        JSONString:=GetJSON(ConteudoJSON);

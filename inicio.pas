@@ -2,11 +2,13 @@ program inicio;
 
 uses sysutils, windows, MMSystem, Classes, variants, crt, graph, math, fphttpclient, openssl, opensslsockets, fpjson, jsonparser, dateutils, keyboard;
 
-var respostamain,s,nomemaquina:string;
+var respostamain,s,nomemaquina,ConteudoJSON:string;
     textoopcao:array[1..7] of string;   //Opçoes passíveis de serem escolhidas
     im1,cursorp,volume,volumeantigo,valorcoord:integer;
     opcaopescolhermain,musicaloop,musicaambiente,primeiravez,cancelarmenu:bool;
     rk:char;
+    HTTPS:TFPHttpClient;
+    JSONString:TJSONData;
 
 procedure UpdateCrtDimensions;
 // secção `initialization` do crt.pp

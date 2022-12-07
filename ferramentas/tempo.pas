@@ -1,7 +1,5 @@
-var HTTPS:TFPHttpClient;
-   localizacao,ConteudoJSON,valorpais,respostamet,clima,descricao,paisescolhido:string;
+var localizacao,valorpais,respostamet,clima,descricao,paisescolhido:string;
    tempatual,tempsens,tempmin,tempmax,pressure,humidity,sea_level,visibilidade,vento:real;
-   JSONString:TJSONData;
    numlugares,loopfortempo,lugardef,nascerdosol,pordosol:integer;
    lat,lon:real;
 
@@ -91,7 +89,7 @@ procedure TempoCidade;
        ConteudoJSON:=Utf8ToAnsi(HTTPS.Post('https://api-b2b.backenster.com/b1/api/v3/translate'));
        clima:=(GetJSON(ConteudoJSON)).FindPath('result[0]').AsString;
        descricao:=(GetJSON(ConteudoJSON)).FindPath('result[1]').AsString;
-       descricao[1]:=UpCase(descricao[1]);//Colocar 1ª letre em Maiusculo
+       descricao[1]:=UpCase(descricao[1]);//Colocar 1ª letra em Maiusculo
        FreeAndNil(HTTPS);
        writeln;
        writeln;
