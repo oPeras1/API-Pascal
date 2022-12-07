@@ -1,153 +1,158 @@
-var nomeforca,letradigitada:string;
-    loopjogoforca,posletra,numvidas,vezescontadas,posxforca,posyforca,xdigite,ydigite:integer;
+var nomeforca,letradigitada,palavrasave:string;
+    loopjogoforca,posletra,numvidas,vezescontadas,posxforca,posyforca,xdigite,ydigite,xdesenho,ydesenho,charcontados,windmaxxoriginalf:integer;
 
-procedure FaseJogosForca;
+procedure FaseJogosForca(fase:integer);
   begin
-       window(WhereX,WhereY,WindMaxX,WindMaxY);
-       //FASE 1
-       writeln(' __');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-
-
-       readkey;
-
-       //FASE 2
-       clrscr;
-       writeln(' ____________________    ');
-       writeln('| .__________________|   ');
-       writeln('| | / /                  ');
-       writeln('| |/ /                   ');
-       writeln('| | /                    ');
-       writeln('| |/                     ');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-
-
-       readkey;
-
-       //FASE 3
-       clrscr;
-       writeln(' ___________.._______    ');
-       writeln('| .__________))______|   ');
-       writeln('| | / /      ||          ');
-       writeln('| |/ /       ||          ');
-       writeln('| | /        ||.-''.     ');
-       writeln('| |/         |/ .  .\    ');
-       writeln('| |          ||  (  |    ');
-       writeln('| |          (\\ _ .´     ');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-
-
-       readkey;
-
-       //FASE 4
-       clrscr;
-       writeln(' ___________.._______    ');
-       writeln('| .__________))______|   ');
-       writeln('| | / /      ||          ');
-       writeln('| |/ /       ||          ');
-       writeln('| | /        ||.-''.     ');
-       writeln('| |/         |/ .  .\    ');
-       writeln('| |          ||  (  |    ');
-       writeln('| |          (\\ _ .´     ');
-       writeln('| |         .-`--´.      ');
-       writeln('| |        //|. .|\\     ');
-       writeln('| |       // |   | \\    ');
-       writeln('| |      //  | . |  \\   ');
-       writeln('| |     (´)  | _ |  (´)  ');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-       writeln('| |');
-
-
-       readkey;
-
-       //FASE 5
-       clrscr;
-       writeln(' ___________.._______    ');
-       writeln('| .__________))______|   ');
-       writeln('| | / /      ||          ');
-       writeln('| |/ /       ||          ');
-       writeln('| | /        ||.-''.     ');
-       writeln('| |/         |/ x  x\    ');
-       writeln('| |          ||  (  |    ');
-       writeln('| |          (\\ _ .´     ');
-       writeln('| |         .-`--´.      ');
-       writeln('| |        //|. .|\\     ');
-       writeln('| |       // |   | \\    ');
-       writeln('| |      //  | . |  \\   ');
-       writeln('| |     (´)  | _ |  (´)  ');
-       writeln('| |          || ||       ');
-       writeln('| |          || ||       ');
-       writeln('| |          || ||       ');
-       writeln('| |          || ||       ');
-       writeln('| |         / | | \      ');
-       writeln('| |         `-´ `-´      ');
-       writeln('| |                      ');
-       writeln('| |                      ');
-       writeln('| |                      ');
-       writeln('| |                      ');
+    window((windmaxxoriginalf-length(' ____________________ ')) div 2,15,windmaxxoriginalf,WindMaxY);
+    case fase of
+       1:
+          begin
+           //FASE 1
+           writeln(' __');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+          end;
+       2:
+         begin
+           clrscr;
+           writeln(' ____________________    ');
+           writeln('| .__________________|   ');
+           writeln('| | / /                  ');
+           writeln('| |/ /                   ');
+           writeln('| | /                    ');
+           writeln('| |/                     ');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+         end;
+       3:
+         begin
+           //FASE 3
+           clrscr;
+           writeln(' ___________.._______    ');
+           writeln('| .__________))______|   ');
+           writeln('| | / /      ||          ');
+           writeln('| |/ /       ||          ');
+           writeln('| | /        ||.-''.     ');
+           writeln('| |/         |/ .  .\    ');
+           writeln('| |          ||  (  |    ');
+           writeln('| |          (\\ _ .´     ');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+         end;
+       4:
+         begin
+           //FASE 4
+           clrscr;
+           writeln(' ___________.._______    ');
+           writeln('| .__________))______|   ');
+           writeln('| | / /      ||          ');
+           writeln('| |/ /       ||          ');
+           writeln('| | /        ||.-''.     ');
+           writeln('| |/         |/ .  .\    ');
+           writeln('| |          ||  (  |    ');
+           writeln('| |          (\\ _ .´     ');
+           writeln('| |         .-`--´.      ');
+           writeln('| |        //|. .|\\     ');
+           writeln('| |       // |   | \\    ');
+           writeln('| |      //  | . |  \\   ');
+           writeln('| |     (´)  | _ |  (´)  ');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+           writeln('| |');
+         end;
+       5:
+         begin
+           //FASE 5
+           clrscr;
+           writeln(' ___________.._______    ');
+           writeln('| .__________))______|   ');
+           writeln('| | / /      ||          ');
+           writeln('| |/ /       ||          ');
+           writeln('| | /        ||.-''.     ');
+           writeln('| |/         |/ x  x\    ');
+           writeln('| |          ||  (  |    ');
+           writeln('| |          (\\ _ .´     ');
+           writeln('| |         .-`--´.      ');
+           writeln('| |        //|. .|\\     ');
+           writeln('| |       // |   | \\    ');
+           writeln('| |      //  | . |  \\   ');
+           writeln('| |     (´)  | _ |  (´)  ');
+           writeln('| |          || ||       ');
+           writeln('| |          || ||       ');
+           writeln('| |          || ||       ');
+           writeln('| |          || ||       ');
+           writeln('| |         / | | \      ');
+           writeln('| |         `-´ `-´      ');
+           writeln('| |                      ');
+           writeln('| |                      ');
+           writeln('| |                      ');
+           writeln('| |                      ');
+           writeln;
+           textcolor(red);
+           writeln('Mataste o home');
+           textcolor(black);
+         end;
+    end;
   end;
 
 procedure JogoForca;
  begin
+   windmaxxoriginalf:=WindMaxX;
    textbackground(lightgray);
    textcolor(black);
    clrscr;
@@ -155,17 +160,17 @@ procedure JogoForca;
    writeln;
    writeln;
    stringfinal:='\____/\____/\__, /\____/   \__,_/\__,_/  /_/    \____/_/   \___/\__,_/  ';
-   GotoXY(((WindMaxX+1 - Length(stringfinal)) div 2)-32,WhereY);
+   GotoXY(((WindMaxX+1 - Length(stringfinal)) div 2),WhereY);
    writeln('       __                         __         ______                     ');
-   GotoXY(((WindMaxX+1 - Length(stringfinal)) div 2)-32,WhereY);
+   GotoXY(((WindMaxX+1 - Length(stringfinal)) div 2),WhereY);
    writeln('      / /___  ____ _____     ____/ /___ _   / ____/___  ______________ _');
-   GotoXY(((WindMaxX+1 - Length(stringfinal)) div 2)-32,WhereY);
+   GotoXY(((WindMaxX+1 - Length(stringfinal)) div 2),WhereY);
    writeln(' __  / / __ \/ __ `/ __ \   / __  / __ `/  / /_  / __ \/ ___/ ___/ __ `/');
-   GotoXY(((WindMaxX+1 - Length(stringfinal)) div 2)-32,WhereY);
+   GotoXY(((WindMaxX+1 - Length(stringfinal)) div 2),WhereY);
    writeln('/ /_/ / /_/ / /_/ / /_/ /  / /_/ / /_/ /  / __/ / /_/ / /  / /__/ /_/ / ');
-   GotoXY(((WindMaxX+1 - Length(stringfinal)) div 2)-32,WhereY);
+   GotoXY(((WindMaxX+1 - Length(stringfinal)) div 2),WhereY);
    writeln(stringfinal);
-   GotoXY(((WindMaxX+1 - Length(stringfinal)) div 2)-32,WhereY);
+   GotoXY(((WindMaxX+1 - Length(stringfinal)) div 2),WhereY);
    writeln('           /____/                                                       ');
    writeln;
    writeln;
@@ -190,8 +195,31 @@ procedure JogoForca;
        nomeforca:=(GetJSON(ConteudoJSON)).FindPath('result[0]').AsString;
        FreeAndNil(HTTPS);
        nomeforca:=AnsiToUtf8(nomeforca);
-       writeln(length(nomeforca));
-       writeln(nomeforca);
+       //Substituir caracteres com acentos para caracteres normais...
+       nomeforca:=StringReplace(nomeforca,'á','a',[rfReplaceAll, rfIgnoreCase]);//substituir para nao aparecer no proximo repeat
+       nomeforca:=StringReplace(nomeforca,'à','a',[rfReplaceAll, rfIgnoreCase]);//substituir para nao aparecer no proximo repeat
+       nomeforca:=StringReplace(nomeforca,'ã','a',[rfReplaceAll, rfIgnoreCase]);//substituir para nao aparecer no proximo repeat
+       nomeforca:=StringReplace(nomeforca,'â','a',[rfReplaceAll, rfIgnoreCase]);//substituir para nao aparecer no proximo repeat
+       nomeforca:=StringReplace(nomeforca,'é','e',[rfReplaceAll, rfIgnoreCase]);//substituir para nao aparecer no proximo repeat
+       nomeforca:=StringReplace(nomeforca,'è','e',[rfReplaceAll, rfIgnoreCase]);//substituir para nao aparecer no proximo repeat
+       nomeforca:=StringReplace(nomeforca,'ê','e',[rfReplaceAll, rfIgnoreCase]);//substituir para nao aparecer no proximo repeat
+       nomeforca:=StringReplace(nomeforca,'í','i',[rfReplaceAll, rfIgnoreCase]);//substituir para nao aparecer no proximo repeat
+       nomeforca:=StringReplace(nomeforca,'ì','i',[rfReplaceAll, rfIgnoreCase]);//substituir para nao aparecer no proximo repeat
+       nomeforca:=StringReplace(nomeforca,'î','i',[rfReplaceAll, rfIgnoreCase]);//substituir para nao aparecer no proximo repeat
+       nomeforca:=StringReplace(nomeforca,'ó','o',[rfReplaceAll, rfIgnoreCase]);//substituir para nao aparecer no proximo repeat
+       nomeforca:=StringReplace(nomeforca,'ò','o',[rfReplaceAll, rfIgnoreCase]);//substituir para nao aparecer no proximo repeat
+       nomeforca:=StringReplace(nomeforca,'ô','o',[rfReplaceAll, rfIgnoreCase]);//substituir para nao aparecer no proximo repeat
+       nomeforca:=StringReplace(nomeforca,'õ','o',[rfReplaceAll, rfIgnoreCase]);//substituir para nao aparecer no proximo repeat
+       nomeforca:=StringReplace(nomeforca,'ú','u',[rfReplaceAll, rfIgnoreCase]);//substituir para nao aparecer no proximo repeat
+       nomeforca:=StringReplace(nomeforca,'ù','u',[rfReplaceAll, rfIgnoreCase]);//substituir para nao aparecer no proximo repeat
+       nomeforca:=StringReplace(nomeforca,'û','u',[rfReplaceAll, rfIgnoreCase]);//substituir para nao aparecer no proximo repeat
+       nomeforca:=StringReplace(nomeforca,'ç','c',[rfReplaceAll, rfIgnoreCase]);//substituir para nao aparecer no proximo repeat
+       charcontados:=0;
+       palavrasave:=nomeforca;//guardar um save da palavra, pois ela será modificada
+       //writeln(length(nomeforca));
+       //writeln(nomeforca);
+       writeln;
+       writeln;
        writeln;
        writeln;
        writeln;//espaco para as letras
@@ -206,6 +234,8 @@ procedure JogoForca;
          GotoXY(xdigite,ydigite);
          writeln;
          writeln;
+         DelLine;
+         InsLine;
          write('Digite uma letra: ');
          readln(letradigitada);
          vezescontadas:=0;
@@ -216,6 +246,7 @@ procedure JogoForca;
            posletra:=pos(letradigitada,nomeforca);
            if (posletra>0) then //letra esta na palavra, na posicao posletra
              begin
+               charcontados:=charcontados+1;
                nomeforca:=StringReplace(nomeforca,letradigitada,'-',[]);//substituir para nao aparecer no proximo repeat
                vezescontadas:=vezescontadas+1;
                GotoXY(1,WhereY-5);//ir para a pos
@@ -236,10 +267,15 @@ procedure JogoForca;
          until posletra<=0;
           if (vezescontadas<=0) then
              begin
+               xdesenho:=WhereX;
+               ydesenho:=WhereY;
                //n ha a letra, ou seja tirar uma vida e descer uma fase.
-               numvidas:=numvidas-1
+               numvidas:=numvidas-1;
+               FaseJogosForca(5-numvidas);
+               window(xdesenho,ydesenho+1,30,windmaxy);
              end;
-       until (numvidas<=0);
+       until (numvidas<=0) or (charcontados=length(palavrasave));
+       writeln(palavrasave);
        readkey;
      end;
      cursoroff;

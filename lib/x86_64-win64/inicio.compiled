@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
-  <Compiler Value="H:\Lazarus\fpc\3.2.2\bin\x86_64-win64\fpc.exe" Date="1429738194"/>
-  <Params Value=" -MObjFPC -Scghi -O1 -gw3 -gl -l -vewnhibq -FuC:\Users\hugso\Desktop\API-TRABALHO\API-Pascal\ -FUC:\Users\hugso\Desktop\API-TRABALHO\API-Pascal\lib\x86_64-win64\ -FEC:\Users\hugso\Desktop\API-TRABALHO\API-Pascal\ -oC:\Users\hugso\Desktop\API-TRABALHO\API-Pascal\inicio.exe inicio.pas"/>
+  <Compiler Value="C:\lazarus\fpc\3.2.2\bin\x86_64-win64\fpc.exe" Date="1429738194"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -gw3 -gl -l -vewnhibq -FuC:\Users\hugso\Desktop\API-Pascal\ -FUC:\Users\hugso\Desktop\API-Pascal\lib\x86_64-win64\ -FEC:\Users\hugso\Desktop\API-Pascal\ -oC:\Users\hugso\Desktop\API-Pascal\inicio.exe inicio.pas"/>
 </CONFIG>

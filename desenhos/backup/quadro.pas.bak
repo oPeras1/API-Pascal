@@ -1,5 +1,5 @@
 var quadropos:array of array of integer;
-    cores,coratual,corantiga,yquadro,posx,posy,ymax,x,y,xcoratual,ycoratual,windmaxxoriginal,windmaxyoriginal:integer;
+    cores,coratual,corantiga,yquadro,posx,posy,ymax,x,y,xcoratual,ycoratual,windmaxxoriginalf,windmaxyoriginalf:integer;
     quadroproc:bool;
 
 procedure Quadro;
@@ -53,7 +53,6 @@ procedure Quadro;
       writeln(' ');
       textcolor(black);
       textbackground(lightgray);
-      write('   BACKSPACE  - Limpar Tudo');
       yquadro:=WhereY+2;
       ymax:=WindMaxY-WhereY-4;
       window(2,yquadro,WindMaxX-1,WindMaxY-1);
@@ -169,8 +168,6 @@ procedure Quadro;
               coratual:=15
           else if (rk='4') then //Definir cores
               coratual:=16
-          else if (rk=#8) then //Limpar
-              repetirtudo:=true
           else if (rk=#27) then //Sair
               quadroproc:=false;
           if (corantiga<>coratual) then

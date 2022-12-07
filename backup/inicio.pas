@@ -35,7 +35,7 @@ procedure writexy(frase:string;xadicional:integer;y:integer);
   begin
     UpdateCrtDimensions;
     GotoXY((WindMaxX - Length(frase)) div 2+xadicional,y);
-    write(frase);
+    write(frase);                                               a
   end;
 
 function MenuCimaBaixo(arrarmenu:array of string;somay:integer): integer; //MENU PARA SUBIR,DESCER, TROCAR DE MENUS...
@@ -192,7 +192,7 @@ begin
         begin
              Quadro;
              opcaopescolhermain:=false;
-        end;                         a
+        end;
       4:
         begin
              Jogos();
